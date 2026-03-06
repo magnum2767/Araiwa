@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>จุฬาแคล — ติดตามแคลอรี่ รพ.จุฬาลงกรณ์</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Prompt:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C0392B;--red2:#E74C3C;--gold:#D4A017;--green:#06D6A0;--blue:#4361EE;--orange:#FF6B35;--yellow:#FFD166;--dark:#1a1a2e;--bg:#f9f5f2;--text:#222;--sub:#888;--border:#e8e0d5;--shadow:0 4px 24px rgba(0,0,0,.09)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Sarabun',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.topbar{background:linear-gradient(90deg,#8b1a1a,#C0392B);color:#fff;text-align:center;padding:7px;font-family:'Prompt',sans-serif;font-size:11px;letter-spacing:1.2px;font-weight:600}
+header{background:#fff;border-bottom:2px solid var(--border);padding:0 14px;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.logo{font-family:'Prompt',sans-serif;font-size:17px;font-weight:800;color:var(--dark);white-space:nowrap;display:flex;align-items:center;gap:7px;cursor:pointer}
+.logo-red{color:var(--red)}
+.nav-wrap{display:flex;gap:2px;background:#f3ecea;border-radius:11px;padding:3px;overflow-x:auto;scrollbar-width:none}
+.nav-wrap::-webkit-scrollbar{display:none}
+.ntab{padding:5px 10px;border-radius:8px;border:none;background:transparent;cursor:pointer;font-family:'Sarabun',sans-serif;font-size:11px;font-weight:600;color:var(--sub);white-space:nowrap;transition:all .18s}
+.ntab.active{background:#fff;color:var(--red);box-shadow:0 1px 6px rgba(0,0,0,.09)}
+.ntab:hover:not(.active){background:rgba(255,255,255,.6);color:var(--text)}
+.page{display:none}.page.active{display:block}
+/* HERO */
+.hero{background:linear-gradient(135deg,#6b0f0f 0%,#8b1a1a 40%,#C0392B 100%);padding:52px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:600;letter-spacing:.8px;margin-bottom:16px}
+.hero h1{font-family:'Prompt',sans-serif;font-size:clamp(26px,5vw,46px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:12px}
+.hero h1 em{color:var(--yellow);font-style:normal}
+.hero p{color:rgba(255,255,255,.65);font-size:14px;max-width:460px;margin:0 auto 26px;line-height:1.7}
+.hero-cta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.btn-h{padding:11px 22px;border-radius:11px;font-family:'Sarabun',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;border:none}
+.btn-h.p{background:#fff;color:var(--red);box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.btn-h.p:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.btn-h.s{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.btn-h.s:hover{background:rgba(255,255,255,.22)}
+.stats-row{display:flex;gap:12px;justify-content:center;margin-top:38px;flex-wrap:wrap}
+.stat-c{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:14px 20px;text-align:center;backdrop-filter:blur(6px)}
+.stat-c .snum{font-family:'Prompt',sans-serif;font-size:22px;font-weight:800;color:var(--yellow)}
+.stat-c .slbl{color:rgba(255,255,255,.55);font-size:10px;margin-top:2px}
+/* SECTION */
+.section{max-width:1100px;margin:0 auto;padding:36px 20px}
+.sec-title{font-family:'Prompt',sans-serif;font-size:21px;font-weight:700;margin-bottom:6px}
+.sec-title em{color:var(--red);font-style:normal}
+.sec-sub{color:var(--sub);font-size:12px;margin-bottom:24px}
+.card{background:#fff;border-radius:16px;padding:22px;box-shadow:var(--shadow);margin-bottom:18px}
+.card h3{font-family:'Prompt',sans-serif;font-size:16px;font-weight:700;margin-bottom:5px}
+.card .csub{color:var(--sub);font-size:12px;margin-bottom:14px}
+/* BUILDING SECTION */
+.bldg-section{border-left:4px solid var(--red);padding-left:14px;margin-bottom:28px}
+.bldg-title{font-family:'Prompt',sans-serif;font-size:16px;font-weight:800;color:var(--dark);margin-bottom:4px}
+.bldg-sub{color:var(--sub);font-size:11px;margin-bottom:10px}
+/* CAN GRID */
+.can-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.can-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;transition:all .22s;border:2px solid transparent}
+.can-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.14);border-color:var(--red)}
+.can-thumb{width:100%;height:120px;display:flex;align-items:center;justify-content:center;font-size:44px;position:relative}
+.can-floor{position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,.55);color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:6px}
+.can-time{position:absolute;top:6px;left:6px;background:rgba(0,0,0,.55);color:#fff;font-size:9px;padding:2px 7px;border-radius:6px}
+.can-info{padding:14px}
+.can-badge{display:inline-block;background:linear-gradient(90deg,#8b1a1a,var(--red));color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:12px;margin-bottom:5px}
+.can-name{font-family:'Prompt',sans-serif;font-size:14px;font-weight:700;margin-bottom:3px}
+.can-desc{color:var(--sub);font-size:11px;line-height:1.55}
+.can-meta{display:flex;gap:10px;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--sub)}
+.can-meta strong{color:var(--text);font-weight:700}
+/* FOOD LAYOUT */
+.food-layout{display:grid;grid-template-columns:1fr 340px;gap:20px;max-width:1100px;margin:0 auto;padding:24px 20px;align-items:start}
+@media(max-width:820px){.food-layout{grid-template-columns:1fr}}
+.food-sec-hd{font-family:'Prompt',sans-serif;font-size:11px;font-weight:700;color:var(--sub);letter-spacing:.6px;margin:16px 0 8px;padding-bottom:6px;border-bottom:2px solid var(--border);text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
+.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:9px}
+.fc{background:#fff;border-radius:13px;overflow:hidden;cursor:pointer;transition:all .18s;border:2px solid transparent;box-shadow:0 2px 8px rgba(0,0,0,.06);position:relative}
+.fc:hover{transform:translateY(-2px);box-shadow:0 7px 20px rgba(0,0,0,.11)}
+.fc.sel{border-color:var(--green);background:#f0fff9}
+.fc.sel::after{content:'✓';position:absolute;top:6px;right:6px;background:var(--green);color:#fff;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.fc-img{width:100%;height:90px;object-fit:cover;display:block}
+.fc-emo{width:100%;height:90px;display:flex;align-items:center;justify-content:center;font-size:38px;background:linear-gradient(135deg,#fdf0ee,#fde8e8)}
+.fc-info{padding:8px}
+.fc-nm{font-weight:700;font-size:11px;line-height:1.3;margin-bottom:2px}
+.fc-cal{font-family:'Prompt',sans-serif;font-size:12px;font-weight:700;color:var(--red)}
+.fc-cal small{font-size:9px;font-weight:400;color:var(--sub)}
+.fc-price{font-size:10px;color:var(--sub)}
+.srch{width:100%;padding:9px 12px;border-radius:11px;border:1.5px solid var(--border);font-family:'Sarabun',sans-serif;font-size:13px;background:#fff;margin-bottom:10px;outline:none;transition:border-color .2s}
+.srch:focus{border-color:var(--red)}
+/* SUMMARY PANEL */
+.sum-panel{background:#fff;border-radius:20px;padding:20px;box-shadow:var(--shadow);position:sticky;top:68px}
+.sum-title{font-family:'Prompt',sans-serif;font-size:15px;font-weight:700;margin-bottom:14px}
+.cal-disp{background:linear-gradient(135deg,#6b0f0f,#C0392B);border-radius:14px;padding:16px;text-align:center;margin-bottom:12px}
+.cal-big{font-family:'Prompt',sans-serif;font-size:40px;font-weight:800;color:var(--yellow);line-height:1}
+.cal-unit{color:rgba(255,255,255,.5);font-size:11px;margin-top:2px}
+.cal-rem{color:rgba(255,255,255,.45);font-size:10px;margin-top:2px}
+.gauge{margin:8px 0}
+.g-lbl{display:flex;justify-content:space-between;font-size:10px;color:var(--sub);margin-bottom:4px}
+.g-track{height:7px;background:#f0ebe4;border-radius:8px;overflow:hidden}
+.g-fill{height:100%;border-radius:8px;transition:width .5s cubic-bezier(.4,2,.6,1);background:linear-gradient(90deg,var(--green),var(--yellow),var(--orange),var(--red))}
+.mac-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.mac-box{background:var(--bg);border-radius:10px;padding:8px 5px;text-align:center}
+.mac-val{font-family:'Prompt',sans-serif;font-size:13px;font-weight:700}
+.mac-nm{font-size:10px;color:var(--sub);margin-top:1px}
+.sel-list{margin-top:10px;max-height:220px;overflow-y:auto;padding-right:3px}
+.sel-list::-webkit-scrollbar{width:3px}
+.sel-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.sel-item{display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:1px solid var(--border);animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateX(6px)}to{opacity:1;transform:none}}
+.si-emo{font-size:16px;flex-shrink:0}
+.si-nm{flex:1;font-size:11px;font-weight:600;line-height:1.3}
+.qty-ctrl{display:flex;align-items:center;gap:4px}
+.qty-btn{width:20px;height:20px;border-radius:6px;border:1px solid var(--border);background:#f5f5f5;cursor:pointer;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1}
+.qty-btn:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.qty-num{font-family:'Prompt',sans-serif;font-size:12px;font-weight:700;min-width:16px;text-align:center;color:var(--red)}
+.si-cal{font-family:'Prompt',sans-serif;font-weight:700;font-size:12px;color:var(--red);white-space:nowrap;margin-left:2px}
+.si-rm{background:none;border:none;cursor:pointer;color:#ccc;font-size:13px;padding:0 2px;transition:color .15s}
+.si-rm:hover{color:var(--red)}
+.empty-st{text-align:center;padding:20px 0;color:var(--sub)}
+.empty-st .eico{font-size:28px;margin-bottom:5px}
+.tip-box{background:#fff8f5;border:1.5px solid rgba(192,57,43,.2);border-radius:12px;padding:10px 12px;margin-top:10px;font-size:11px;line-height:1.7;color:#922b21}
+.tip-box strong{display:block;margin-bottom:1px}
+.btn-clr{width:100%;margin-top:8px;padding:9px;border-radius:10px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:600;color:var(--sub);transition:all .18s}
+.btn-clr:hover{background:#fff3f3;border-color:var(--red);color:var(--red)}
+/* CALC */
+.calc-page{max-width:920px;margin:0 auto;padding:30px 20px}
+.calc-hero{border-radius:18px;padding:30px 26px;color:#fff;margin-bottom:18px}
+.calc-hero h2{font-family:'Prompt',sans-serif;font-size:24px;font-weight:800;margin-bottom:7px}
+.calc-hero p{color:rgba(255,255,255,.65);font-size:13px;line-height:1.7}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:16px}
+.fg label{display:block;font-size:11px;font-weight:700;color:var(--sub);margin-bottom:4px}
+.fg input,.fg select{width:100%;padding:9px 12px;border-radius:10px;border:1.5px solid var(--border);font-family:'Sarabun',sans-serif;font-size:13px;background:#fff;outline:none;transition:border-color .18s;color:var(--text)}
+.fg input:focus,.fg select:focus{border-color:var(--red)}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:18px}
+.res-box{background:#fff;border-radius:16px;padding:20px 14px;box-shadow:var(--shadow);text-align:center;border-top:4px solid var(--red)}
+.res-box.g{border-top-color:var(--green)}.res-box.b{border-top-color:var(--blue)}.res-box.r{border-top-color:var(--red)}.res-box.p{border-top-color:#7209B7}
+.res-num{font-family:'Prompt',sans-serif;font-size:28px;font-weight:800;color:var(--dark)}
+.res-unit{font-size:10px;color:var(--sub);margin-top:2px}
+.res-lbl{font-size:12px;font-weight:700;margin-top:6px;color:var(--text)}
+.res-desc{font-size:10px;color:var(--sub);margin-top:3px;line-height:1.5}
+.goal-tabs{display:flex;gap:7px;margin-bottom:18px;flex-wrap:wrap}
+.goal-tab{padding:9px 18px;border-radius:11px;border:2px solid var(--border);background:#fff;cursor:pointer;font-family:'Sarabun',sans-serif;font-size:13px;font-weight:700;color:var(--sub);transition:all .18s}
+.goal-tab.active{border-color:var(--red);background:var(--red);color:#fff}
+.goal-tab:hover:not(.active){border-color:var(--red);color:var(--red)}
+.bmi-scale{display:flex;border-radius:8px;overflow:hidden;height:26px;margin-bottom:7px}
+.bmi-seg{flex:1;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff}
+.bmi-ptr-row{position:relative;height:16px;margin-top:3px}
+.bmi-ptr{position:absolute;transform:translateX(-50%);font-size:16px;transition:left .5s cubic-bezier(.4,2,.6,1)}
+.bmi-lbls{display:flex;justify-content:space-between;font-size:10px;color:var(--sub);margin-top:2px}
+.bmi-desc{margin-top:12px;padding:10px;border-radius:11px;font-size:13px;font-weight:600;text-align:center}
+.age-table{width:100%;border-collapse:collapse;font-size:12px}
+.age-table th{background:var(--dark);color:#fff;padding:8px 10px;text-align:left;font-family:'Prompt',sans-serif;font-size:10px;font-weight:700;letter-spacing:.4px}
+.age-table td{padding:8px 10px;border-bottom:1px solid var(--border)}
+.age-table tr:hover td{background:#fef9f5}
+.age-table tr.hl td{background:rgba(192,57,43,.07)}
+.hl-cell{font-weight:700;color:var(--red)}
+.meal-row{display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.meal-badge{border-radius:9px;padding:9px 11px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:78px;flex-shrink:0}
+.meal-badge .mico{font-size:20px}
+.meal-badge .mnm{font-family:'Prompt',sans-serif;font-size:10px;font-weight:700;margin-top:3px;color:#333}
+.meal-badge .mtm{font-size:9px;color:#999}
+.meal-body{flex:1;background:var(--bg);border-radius:10px;padding:9px 12px;min-width:180px}
+.meal-item{display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px dashed var(--border);font-size:11px}
+.meal-item:last-child{border:none}
+.mic{font-family:'Prompt',sans-serif;font-weight:700;font-size:11px;color:var(--red)}
+.meal-tot{background:rgba(192,57,43,.07);border-radius:8px;padding:7px 10px;display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-top:6px}
+.meal-tot-c{font-family:'Prompt',sans-serif;color:var(--red);font-size:14px}
+.weekly-table{width:100%;border-collapse:collapse;font-size:11px}
+.weekly-table th{background:var(--dark);color:#fff;padding:8px 7px;font-family:'Prompt',sans-serif;font-size:10px;font-weight:700;text-align:center}
+.weekly-table td{padding:7px 6px;border:1px solid var(--border);vertical-align:top}
+.weekly-table tr:nth-child(even) td{background:#fafaf8}
+.wday-head{background:var(--red)!important;color:#fff;font-family:'Prompt',sans-serif;font-weight:700;font-size:11px;text-align:center}
+.mcell .nm{font-weight:700;color:var(--text);font-size:11px}
+.mcell .cl{color:var(--red);font-family:'Prompt',sans-serif;font-weight:700;font-size:11px}
+.refresh-btn{background:none;border:1.5px solid var(--border);border-radius:8px;padding:3px 9px;font-size:11px;cursor:pointer;color:var(--sub);transition:all .18s;display:flex;align-items:center;gap:4px}
+.refresh-btn:hover{background:var(--red);color:#fff;border-color:var(--red)}
+/* EXERCISE */
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:12px}
+@media(max-width:540px){.week-grid{grid-template-columns:repeat(4,1fr)}}
+.day-card{border-radius:12px;padding:9px 6px;text-align:center;border:2px solid var(--border);cursor:pointer;transition:all .18s}
+.day-card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.11)}
+.day-card.rest{background:#fafafa;border-color:#eee}
+.day-card.aday{background:linear-gradient(135deg,#f0fff9,#e0f8f0);border-color:var(--green)}
+.day-card.crd{background:linear-gradient(135deg,#fff3e0,#ffe5cc);border-color:var(--orange)}
+.day-card.str{background:linear-gradient(135deg,#e8f0ff,#dce8ff);border-color:var(--blue)}
+.day-nm{font-family:'Prompt',sans-serif;font-size:9px;font-weight:700;color:var(--sub);margin-bottom:4px}
+.day-ico{font-size:20px;margin-bottom:4px}
+.day-ty{font-size:9px;font-weight:700;margin-bottom:2px}
+.day-kc{font-family:'Prompt',sans-serif;font-size:10px;font-weight:700;color:var(--orange)}
+.ex-row{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:var(--bg);margin-bottom:7px}
+.ex-ico{font-size:24px;flex-shrink:0}
+.ex-info{flex:1}.ex-nm{font-weight:700;font-size:12px;margin-bottom:2px}
+.ex-desc{font-size:11px;color:var(--sub)}
+.ex-cb{background:var(--orange);color:#fff;border-radius:7px;padding:3px 8px;font-family:'Prompt',sans-serif;font-size:10px;font-weight:700;white-space:nowrap}
+.burn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:9px;margin-top:5px}
+.buc{background:#fff;border-radius:13px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);text-align:center}
+.buc-ico{font-size:28px;margin-bottom:4px}.buc-nm{font-weight:700;font-size:11px;margin-bottom:2px}
+.buc-cal{font-family:'Prompt',sans-serif;font-size:18px;font-weight:800;color:var(--orange)}
+.buc-u{font-size:9px;color:var(--sub)}.buc-note{font-size:9px;color:var(--sub);margin-top:2px}
+.chip{padding:6px 14px;border-radius:18px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-family:'Sarabun',sans-serif;font-size:11px;font-weight:600;color:var(--sub);transition:all .16s}
+.chip.on{background:var(--red);border-color:var(--red);color:#fff}
+/* COOK */
+.cook-page{max-width:860px;margin:0 auto;padding:30px 20px}
+.ing-row{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+.ing-row input{padding:8px 11px;border-radius:10px;border:1.5px solid var(--border);font-family:'Sarabun',sans-serif;font-size:12px;background:#fff;outline:none;transition:border-color .18s}
+.ing-row input:focus{border-color:var(--red)}
+.ing-nm-input{flex:2;min-width:120px}
+.ing-qty-input{flex:1;min-width:70px}
+.ing-unit-sel,.ing-unit-sel select{flex:1;min-width:80px;padding:8px 11px;border-radius:10px;border:1.5px solid var(--border);font-family:'Sarabun',sans-serif;font-size:12px;background:#fff;outline:none}
+.ing-cal-input{flex:1;min-width:70px}
+.ing-rm-btn{background:none;border:1.5px solid #ddd;border-radius:9px;padding:7px 10px;cursor:pointer;font-size:13px;color:#aaa;transition:all .15s}
+.ing-rm-btn:hover{background:#ffe5e5;border-color:var(--red);color:var(--red)}
+.cook-total{background:linear-gradient(135deg,#6b0f0f,#C0392B);color:#fff;border-radius:14px;padding:18px;text-align:center;margin:16px 0}
+.cook-total-num{font-family:'Prompt',sans-serif;font-size:36px;font-weight:800;color:var(--yellow)}
+.cook-alert{border-radius:12px;padding:12px 16px;font-size:13px;font-weight:600;margin-top:10px;display:none;border:2px solid}
+.cook-alert.ok{background:#eafaf1;border-color:var(--green);color:#1e8449}
+.cook-alert.warn{background:#fff8e1;border-color:#f9c74f;color:#7d6608}
+.cook-alert.over{background:#fdedec;border-color:var(--red);color:#922b21}
+.ing-preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:7px;margin-top:10px}
+.ing-preset{background:var(--bg);border-radius:9px;padding:9px 10px;cursor:pointer;transition:all .15s;text-align:center;border:1.5px solid transparent}
+.ing-preset:hover{border-color:var(--red);background:#fff3f0}
+.ing-preset .pico{font-size:18px;margin-bottom:2px}
+.ing-preset .pnm{font-size:10px;font-weight:700}
+.ing-preset .pcal{font-size:10px;color:var(--sub)}
+/* CHULA INFO */
+.chula-hero{background:linear-gradient(135deg,#6b0f0f,#8b1a1a,#C0392B);border-radius:18px;padding:30px 26px;color:#fff;margin-bottom:18px;position:relative;overflow:hidden}
+.chula-hero::after{content:'🏥';position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:64px;opacity:.1}
+.chula-hero h2{font-family:'Prompt',sans-serif;font-size:24px;font-weight:800;margin-bottom:7px}
+.chula-hero p{color:rgba(255,255,255,.65);font-size:13px;line-height:1.7}
+.mg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:11px;margin-bottom:14px}
+.mg-card{border-radius:13px;padding:14px;border-left:4px solid #ccc}
+.mg-ico{font-size:24px;margin-bottom:6px}.mg-nm{font-family:'Prompt',sans-serif;font-weight:700;font-size:13px;margin-bottom:4px}
+.mg-desc{font-size:11px;color:#666;line-height:1.7}
+.disease-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:9px}
+.dcard{background:#fff;border-radius:10px;padding:12px}
+.dico{font-size:20px;margin-bottom:4px}.dnm{font-weight:700;font-size:12px;margin-bottom:2px}
+.ddesc{font-size:10px;color:var(--sub);line-height:1.6}
+/* ABOUT */
+.about-hero{background:linear-gradient(135deg,#6b0f0f,#8b1a1a,#C0392B);padding:50px 20px;text-align:center}
+.about-hero h2{font-family:'Prompt',sans-serif;font-size:28px;font-weight:800;color:#fff;margin-bottom:8px}
+.about-hero p{color:rgba(255,255,255,.6);font-size:14px}
+.about-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;max-width:920px;margin:32px auto;padding:0 20px}
+.acard{background:#fff;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.aic{font-size:28px;margin-bottom:8px}.acard h3{font-family:'Prompt',sans-serif;font-size:14px;font-weight:700;margin-bottom:5px}
+.acard p{font-size:11px;color:var(--sub);line-height:1.7}
+/* BNAV */
+.bnav{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);z-index:300;padding:5px 0}
+.bnav-inner{display:flex;justify-content:space-around}
+.bnav-btn{display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 5px;border:none;background:none;cursor:pointer;color:var(--sub);font-family:'Sarabun',sans-serif;font-size:8px;font-weight:600;transition:color .14s}
+.bnav-btn .nico{font-size:16px}
+.bnav-btn.active{color:var(--red)}
+@media(max-width:600px){.bnav{display:block}body{padding-bottom:62px}header .nav-wrap{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar">🏥 โรงพยาบาลจุฬาลงกรณ์ สภากาชาดไทย — Calorie Tracker</div>
+<header>
+  <div class="logo" onclick="showPage('home')">🏥 จุฬา<span class="logo-red">แคล</span></div>
+  <div class="nav-wrap" id="main-nav">
+    <button class="ntab active" onclick="showPage('home')">🏠 หน้าแรก</button>
+    <button class="ntab" onclick="showPage('bwell')">🏢 Bwell (ทวีวงศ์ฯ)</button>
+    <button class="ntab" onclick="showPage('phumisiri')">🏛️ ภูมิสิริ ชั้น14</button>
+    <button class="ntab" onclick="showPage('sk')">🏥 อาคาร สก ชั้น11</button>
+    <button class="ntab" onclick="showPage('sth')">🏥 อาคาร ส.ธ. ชั้น2</button>
+    <button class="ntab" onclick="showPage('opd')">🆕 OPD ใหม่ ชั้น B1</button>
+    <button class="ntab" onclick="showPage('aor')">🍚 อาคาร อปร (ฮาลาล)</button>
+    <button class="ntab" onclick="showPage('community')">🌿 ชุมชน ฬ</button>
+    <button class="ntab" onclick="showPage('tdee')">🔢 คำนวณแคล</button>
+    <button class="ntab" onclick="showPage('exercise')">🏋️ ออกกำลังกาย</button>
+    <button class="ntab" onclick="showPage('cook')">🍳 ทำอาหารเอง</button>
+    <button class="ntab" onclick="showPage('chula')">📋 โภชนาการ</button>
+    <button class="ntab" onclick="showPage('about')">ℹ️ เกี่ยวกับ</button>
+  </div>
+</header>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-badge">🏥 โรงพยาบาลจุฬาลงกรณ์ สภากาชาดไทย</div>
+    <h1>มื้อนี้<em>กี่แคลอรี่?</em></h1>
+    <p>ข้อมูลร้านอาหารจริงในรพ.จุฬาฯ ครบทุกตึก พร้อมคำนวณแคลอรี่ วางแผนโภชนาการ และทำอาหารเอง</p>
+    <div class="hero-cta">
+      <button class="btn-h p" onclick="showPage('tdee')">🔢 คำนวณแคลอรี่ของคุณ</button>
+      <button class="btn-h s" onclick="showPage('bwell')">🍽️ ดูเมนูอาหาร</button>
+    </div>
+    <div class="stats-row">
+      <div class="stat-c"><div class="snum">7</div><div class="slbl">ศูนย์อาหาร</div></div>
+      <div class="stat-c"><div class="snum">100+</div><div class="slbl">เมนูอาหาร</div></div>
+      <div class="stat-c"><div class="snum">🍳</div><div class="slbl">คำนวณวัตถุดิบ</div></div>
+      <div class="stat-c"><div class="snum">🏥</div><div class="slbl">ข้อมูลจริง</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="sec-title">ศูนย์อาหาร <em>ทุกตึก</em> รพ.จุฬาลงกรณ์</div>
+    <div class="sec-sub">ข้อมูลร้านค้าจริง อัปเดต 2024–2025 — คลิกเพื่อดูเมนูและคำนวณแคลอรี่</div>
+    <div id="home-grid"></div>
+  </div>
+</div>
+
+<!-- FOOD PAGES (built dynamically) -->
+<div id="page-bwell" class="page"></div>
+<div id="page-phumisiri" class="page"></div>
+<div id="page-sk" class="page"></div>
+<div id="page-sth" class="page"></div>
+<div id="page-opd" class="page"></div>
+<div id="page-aor" class="page"></div>
+<div id="page-community" class="page"></div>
+
+<!-- TDEE -->
+<div id="page-tdee" class="page">
+<div class="calc-page">
+  <div class="calc-hero" style="background:linear-gradient(135deg,#0f3460,#16213e)">
+    <h2>🔢 คำนวณแคลอรี่ที่ใช้ต่อวัน</h2>
+    <p>กรอกข้อมูลของคุณ ระบบคำนวณ BMR / TDEE และสร้างแผนอาหารเฉพาะตัว</p>
+  </div>
+  <div class="card">
+    <h3>📋 ข้อมูลส่วนตัว</h3>
+    <div class="csub">กรอกให้ครบ ระบบคำนวณอัตโนมัติ</div>
+    <div class="form-grid">
+      <div class="fg"><label>เพศ</label><select id="td-gender" onchange="calcTDEE()"><option value="male">ชาย</option><option value="female">หญิง</option></select></div>
+      <div class="fg"><label>อายุ (ปี)</label><input type="number" id="td-age" value="25" min="10" max="90" oninput="calcTDEE()"></div>
+      <div class="fg"><label>น้ำหนัก (กก.)</label><input type="number" id="td-weight" value="60" min="30" max="200" oninput="calcTDEE()"></div>
+      <div class="fg"><label>ส่วนสูง (ซม.)</label><input type="number" id="td-height" value="165" min="100" max="220" oninput="calcTDEE()"></div>
+      <div class="fg" style="grid-column:1/-1"><label>ระดับกิจกรรม</label>
+        <select id="td-act" onchange="calcTDEE()">
+          <option value="1.2">🛋️ นั่งทำงาน ไม่ออกกำลังกาย</option>
+          <option value="1.375">🚶 ออกกำลังกายเบา 1–3 วัน/สัปดาห์</option>
+          <option value="1.55" selected>🏃 ออกกำลังกายปานกลาง 3–5 วัน/สัปดาห์</option>
+          <option value="1.725">🏋️ ออกกำลังกายหนัก 6–7 วัน/สัปดาห์</option>
+          <option value="1.9">🔥 นักกีฬา / งานใช้แรงงานหนักมาก</option>
+        </select>
+      </div>
+    </div>
+    <div style="margin-bottom:7px"><label style="font-size:11px;font-weight:700;color:var(--sub)">🎯 เป้าหมาย</label></div>
+    <div class="goal-tabs">
+      <button class="goal-tab" onclick="setGoal('lose',this)">🔻 ลดน้ำหนัก</button>
+      <button class="goal-tab active" onclick="setGoal('maintain',this)">⚖️ คงน้ำหนัก</button>
+      <button class="goal-tab" onclick="setGoal('gain',this)">🔺 เพิ่มน้ำหนัก</button>
+    </div>
+  </div>
+  <div class="res-grid" id="res-grid"></div>
+  <div class="card">
+    <h3>⚖️ ค่า BMI</h3>
+    <div class="bmi-scale">
+      <div class="bmi-seg" style="background:#4ea8de;flex:1.5">ผอม</div>
+      <div class="bmi-seg" style="background:#06D6A0;flex:2">ปกติ</div>
+      <div class="bmi-seg" style="background:#FFD166;flex:1.5">เกิน</div>
+      <div class="bmi-seg" style="background:#FF6B35;flex:1.5">อ้วน</div>
+      <div class="bmi-seg" style="background:#EF233C;flex:1">มาก</div>
+    </div>
+    <div class="bmi-ptr-row"><div class="bmi-ptr" id="bmi-ptr" style="left:40%">👆</div></div>
+    <div class="bmi-lbls"><span>16</span><span>18.5</span><span>23</span><span>25</span><span>30</span><span>40+</span></div>
+    <div class="bmi-desc" id="bmi-desc">—</div>
+  </div>
+  <div class="card">
+    <h3>📊 ตารางแคลอรี่ตามช่วงวัย (DRI)</h3>
+    <div class="csub">แถวสีแดงคือช่วงวัยของคุณ</div>
+    <div style="overflow-x:auto"><table class="age-table"><thead><tr><th>ช่วงวัย</th><th>อายุ</th><th>ชาย (kcal)</th><th>หญิง (kcal)</th><th>คำแนะนำ</th></tr></thead><tbody id="age-tbody"></tbody></table></div>
+  </div>
+  <div class="card">
+    <h3>🍽️ แผนการกินสำหรับคุณ</h3>
+    <div class="csub" id="mp-sub">แบ่ง 3 มื้อหลัก + 1 มื้อว่าง</div>
+    <div id="mp-content"></div>
+  </div>
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
+      <h3>📅 ตารางอาหารรายสัปดาห์</h3>
+      <button class="refresh-btn" onclick="refreshWeekly()">🔄 สุ่มเมนูใหม่</button>
+    </div>
+    <div class="csub">ปรับตามเป้าหมายและแคลอรี่ของคุณ</div>
+    <div id="weekly-content"></div>
+  </div>
+</div>
+</div>
+
+<!-- EXERCISE -->
+<div id="page-exercise" class="page">
+<div class="calc-page">
+  <div class="calc-hero" style="background:linear-gradient(135deg,#1a1a2e,#0f3460)">
+    <h2>🏋️ แผนออกกำลังกายรายสัปดาห์</h2>
+    <p>ตาราง 7 วัน 3 ระดับ พร้อมแคลอรี่เผาผลาญและท่าออกกำลังกาย</p>
+  </div>
+  <div class="card" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:14px 18px">
+    <span style="font-family:'Prompt',sans-serif;font-weight:700;font-size:12px">ระดับ:</span>
+    <button class="chip on" onclick="setLevel(this,'beginner')">🌱 มือใหม่</button>
+    <button class="chip" onclick="setLevel(this,'intermediate')">💪 กลาง</button>
+    <button class="chip" onclick="setLevel(this,'advanced')">🔥 ขั้นสูง</button>
+    <span style="margin-left:auto;font-size:11px;color:var(--sub)">น้ำหนัก: <strong id="ex-w">60</strong> กก.</span>
+  </div>
+  <div class="card"><h3>📅 ตารางประจำสัปดาห์</h3><div class="csub">คลิกที่วันเพื่อดูรายละเอียด</div><div class="week-grid" id="week-grid"></div></div>
+  <div class="card" id="ex-det-card" style="display:none"><h3 id="ex-det-title">รายละเอียด</h3><div class="csub" id="ex-det-sub"></div><div id="ex-det-body"></div></div>
+  <div class="card"><h3>🔥 แคลอรี่เผาผลาญต่อ 30 นาที</h3><div class="csub">อ้างอิงน้ำหนัก 60 กก.</div><div class="burn-grid" id="burn-grid"></div></div>
+</div>
+</div>
+
+<!-- COOK -->
+<div id="page-cook" class="page">
+<div class="cook-page">
+  <div class="calc-hero" style="background:linear-gradient(135deg,#1a472a,#27ae60)">
+    <h2>🍳 คำนวณแคลอรี่จากวัตถุดิบ</h2>
+    <p>เลือกวัตถุดิบ กรอกปริมาณ คำนวณแคลทันที พร้อมแจ้งเตือนถ้าเกินเป้า</p>
+  </div>
+  <div class="card">
+    <h3>🔍 วัตถุดิบยอดนิยม</h3>
+    <div class="csub">คลิกเพื่อเพิ่มลงรายการ</div>
+    <div class="ing-preset-grid" id="ing-presets"></div>
+  </div>
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+      <h3>📝 รายการวัตถุดิบ</h3>
+      <button onclick="addIngRow()" style="background:var(--green);color:#fff;border:none;padding:7px 14px;border-radius:9px;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:700;cursor:pointer">+ เพิ่มรายการ</button>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:6px;margin-bottom:8px;padding:0 4px">
+      <div style="font-size:10px;font-weight:700;color:var(--sub)">ชื่อวัตถุดิบ</div>
+      <div style="font-size:10px;font-weight:700;color:var(--sub)">ปริมาณ</div>
+      <div style="font-size:10px;font-weight:700;color:var(--sub)">หน่วย</div>
+      <div style="font-size:10px;font-weight:700;color:var(--sub)">kcal/100g</div>
+      <div></div>
+    </div>
+    <div id="ing-rows"></div>
+    <div class="cook-total">
+      <div style="font-size:12px;opacity:.7;margin-bottom:4px">แคลอรี่รวมทั้งหมด</div>
+      <div class="cook-total-num" id="cook-total-num">0</div>
+      <div style="font-size:12px;opacity:.7;margin-top:2px">kcal</div>
+      <div style="font-size:11px;opacity:.5;margin-top:4px" id="cook-tdee-note">ตั้งเป้าหมายได้ที่หน้า "คำนวณแคล"</div>
+    </div>
+    <div class="cook-alert ok" id="cook-ok">✅ อยู่ในเกณฑ์ดี! แคลอรี่มื้อนี้เหมาะสมไม่เกินเป้าหมาย</div>
+    <div class="cook-alert warn" id="cook-warn"></div>
+    <div class="cook-alert over" id="cook-over"></div>
+  </div>
+  <div class="card">
+    <h3>📊 ตารางแคลอรี่วัตถุดิบอ้างอิง</h3>
+    <div class="csub">ค่าแคลอรี่ต่อ 100 กรัม</div>
+    <div style="overflow-x:auto"><table class="age-table" id="ing-ref-table"></table></div>
+  </div>
+</div>
+</div>
+
+<!-- CHULA INFO -->
+<div id="page-chula" class="page">
+<div class="calc-page">
+  <div class="chula-hero">
+    <h2>🏥 โภชนาการแนะนำ รพ.จุฬาลงกรณ์</h2>
+    <p>คำแนะนำจากโภชนากร รพ.จุฬาลงกรณ์ สภากาชาดไทย + โภชนาการเฉพาะโรค</p>
+  </div>
+  <div class="card">
+    <h3>🕐 คำแนะนำการรับประทาน</h3>
+    <div class="csub">แนวทางจากโภชนากร รพ.จุฬาฯ</div>
+    <div class="mg-grid" id="mg-grid"></div>
+    <div id="chula-tip" style="background:#fef9f0;color:#7a5a2d;border:1.5px solid #f5d99a;border-radius:12px;padding:12px 16px;font-size:12px;line-height:1.9"></div>
+  </div>
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+      <h3>✅ เมนูแนะนำ</h3>
+      <button class="refresh-btn" onclick="renderChulaRec()">🔄 สุ่มเมนูใหม่</button>
+    </div>
+    <div class="csub">เมนูสุขภาพจาก รพ.จุฬาฯ — กด 🔄 เพื่อดูเมนูอื่น</div>
+    <div id="chula-rec-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:11px"></div>
+  </div>
+  <div class="card" style="background:linear-gradient(135deg,#fff8f8,#fff0f0);border:1.5px solid rgba(192,57,43,.15)">
+    <div style="font-family:'Prompt',sans-serif;font-size:15px;font-weight:700;margin-bottom:12px;color:#922b21">💊 โภชนาการเฉพาะโรค</div>
+    <div class="disease-grid" id="disease-grid"></div>
+  </div>
+</div>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" class="page">
+  <div class="about-hero">
+    <h2>🏥 จุฬาแคล</h2>
+    <p>ติดตามแคลอรี่ รพ.จุฬาลงกรณ์ สภากาชาดไทย ครบทุกตึก</p>
+  </div>
+  <div class="about-grid">
+    <div class="acard"><div class="aic">🏥</div><h3>ข้อมูลร้านจริง</h3><p>ร้านค้าจริงทุกตึกใน รพ.จุฬาฯ พร้อมเมนูและแคลอรี่ อัปเดต 2024-2025</p></div>
+    <div class="acard"><div class="aic">🔢</div><h3>คำนวณ BMR &amp; TDEE</h3><p>คำนวณค่าพลังงานตามอายุ เพศ น้ำหนัก ส่วนสูง และระดับกิจกรรม</p></div>
+    <div class="acard"><div class="aic">🎯</div><h3>เป้าหมายน้ำหนัก</h3><p>ลด คง เพิ่มน้ำหนัก แผนอาหารปรับอัตโนมัติพร้อมตารางรายสัปดาห์</p></div>
+    <div class="acard"><div class="aic">🍳</div><h3>คำนวณวัตถุดิบ</h3><p>กรอกวัตถุดิบและปริมาณ คำนวณแคลทันทีพร้อมแจ้งเตือนถ้าเกินเป้า</p></div>
+    <div class="acard"><div class="aic">🏋️</div><h3>ออกกำลังกาย</h3><p>3 ระดับ มือใหม่ถึงขั้นสูง พร้อมแคลอรี่เผาผลาญ</p></div>
+    <div class="acard"><div class="aic">🔄</div><h3>สุ่มเมนูใหม่</h3><p>ตารางอาหารรายสัปดาห์และเมนูแนะนำรีเฟรชได้ตลอดเวลา</p></div>
+  </div>
+  <div style="text-align:center;padding:28px 20px 80px;color:var(--sub);font-size:11px">
+    <div style="font-family:'Prompt',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:5px">🏥 จุฬาแคล v4.0</div>
+    <p>ข้อมูลแคลอรี่เป็นการประมาณการ ควรปรึกษาแพทย์หรือนักโภชนากร</p>
+  </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bnav">
+  <div class="bnav-inner">
+    <button class="bnav-btn active" onclick="showPage('home')"><span class="nico">🏠</span>หน้าแรก</button>
+    <button class="bnav-btn" onclick="showPage('bwell')"><span class="nico">🏢</span>Bwell</button>
+    <button class="bnav-btn" onclick="showPage('sk')"><span class="nico">🏥</span>สก</button>
+    <button class="bnav-btn" onclick="showPage('tdee')"><span class="nico">🔢</span>แคล</button>
+    <button class="bnav-btn" onclick="showPage('exercise')"><span class="nico">🏋️</span>ออกกำลัง</button>
+    <button class="bnav-btn" onclick="showPage('cook')"><span class="nico">🍳</span>ทำเอง</button>
+    <button class="bnav-btn" onclick="showPage('chula')"><span class="nico">📋</span>โภชนาการ</button>
+  </div>
+</nav>
+
+<script>
+/* ====== ALL CANTEEN DATA (real shops, real menus) ====== */
+var canteens = [
+{
+  id:'bwell', bldg:'ศูนย์อาหารทวีวงศ์ถวัลยศักดิ์ (Bwell Food Mall)',
+  name:'Bwell Food Mall', floor:'ชั้น G', time:'06:30–20:00',
+  desc:'ศูนย์อาหารใหญ่ที่สุดในรพ.จุฬาฯ แบรนด์ดัง+ร้านอาหารไทยนานาชาติ',
+  emo:'🏢', grad:'linear-gradient(135deg,#fdf0ee,#fde8e8)',
+  shops:[
+    {name:'ร้านอาหารตามสั่ง (สมบัติโภชนา)', desc:'ตามสั่งรสจัด คะน้าหมูกรอบ กะเพรา',
+     items:[
+      {id:'bw1',nm:'คะน้าหมูกรอบ+ข้าว',cal:520,p:24,c:58,f:22,price:56,emo:'🥬'},
+      {id:'bw2',nm:'กะเพราหมูสับ+ข้าว',cal:490,p:25,c:56,f:18,price:56,emo:'🌿'},
+      {id:'bw3',nm:'สปาเก็ตตี้ผัดซอส',cal:450,p:16,c:70,f:12,price:65,emo:'🍝'},
+      {id:'bw4',nm:'ผัดคะน้าหมูสับ',cal:380,p:22,c:42,f:14,price:50,emo:'🥦'},
+     ]},
+    {name:"Chester's", desc:'ข้าวไก่ย่าง ชุดปลากะพงทอดน้ำปลา',
+     items:[
+      {id:'bw5',nm:"Chester's ข้าวไก่ย่าง",cal:550,p:36,c:62,f:14,price:99,emo:'🍗'},
+      {id:'bw6',nm:'ชุดปลากะพงทอดน้ำปลา',cal:680,p:40,c:65,f:24,price:159,emo:'🐟'},
+      {id:'bw7',nm:'ชุดไก่ทอดและข้าว',cal:600,p:32,c:64,f:20,price:119,emo:'🍖'},
+     ]},
+    {name:'Subway', desc:'แซนด์วิชสุขภาพ เลือกวัตถุดิบได้เอง',
+     items:[
+      {id:'bw8',nm:'Sub ไก่เทริยากิ 6 นิ้ว',cal:350,p:24,c:48,f:6,price:169,emo:'🥪'},
+      {id:'bw9',nm:'Sub ทูน่า 6 นิ้ว',cal:380,p:22,c:46,f:10,price:159,emo:'🐟'},
+      {id:'bw10',nm:'Sub Veggie Delight 6 นิ้ว',cal:240,p:10,c:44,f:4,price:129,emo:'🥗'},
+     ]},
+    {name:"Auntie Anne's", desc:'เพรทเซล เครื่องดื่มน้ำมะนาว',
+     items:[
+      {id:'bw11',nm:'เพรทเซลอบเนย',cal:370,p:8,c:72,f:6,price:75,emo:'🥨'},
+      {id:'bw12',nm:'เพรทเซลชีส',cal:410,p:12,c:68,f:10,price:95,emo:'🧀'},
+      {id:'bw13',nm:'เลมอนเนด (ขนาดกลาง)',cal:120,p:0,c:30,f:0,price:55,emo:'🍋'},
+     ]},
+    {name:'Zeroco Coffee', desc:'กาแฟคลีน ไม่มีน้ำตาล/นมวัว',
+     items:[
+      {id:'bw14',nm:'กาแฟดำ (Black Coffee)',cal:5,p:0,c:1,f:0,price:55,emo:'☕'},
+      {id:'bw15',nm:'ขนมปังปิ้งหญ้าหวาน',cal:180,p:4,c:38,f:2,price:55,emo:'🍞'},
+      {id:'bw16',nm:'Matcha Latte (หญ้าหวาน)',cal:80,p:2,c:16,f:1,price:75,emo:'🍵'},
+     ]},
+    {name:'S&P', desc:'อาหารไทย เบเกอรี่ มาตรฐาน',
+     items:[
+      {id:'bw17',nm:'ขนมจีนน้ำยาปลา',cal:420,p:22,c:58,f:10,price:89,emo:'🍜'},
+      {id:'bw18',nm:'ผัดไทยกุ้ง',cal:520,p:24,c:72,f:14,price:129,emo:'🍤'},
+      {id:'bw19',nm:'แพนเค้กเนย+น้ำผึ้ง',cal:350,p:8,c:60,f:10,price:85,emo:'🥞'},
+     ]},
+    {name:'Hello Yogurt', desc:'Soft Serve โยเกิร์ตกรีก แคลต่ำ',
+     items:[
+      {id:'bw20',nm:'Soft Serve โยเกิร์ต S',cal:140,p:5,c:24,f:2,price:49,emo:'🍦'},
+      {id:'bw21',nm:'Soft Serve โยเกิร์ต M',cal:200,p:7,c:34,f:3,price:89,emo:'🍦'},
+      {id:'bw22',nm:'Hello To Go (กล่อง)',cal:180,p:8,c:28,f:3,price:79,emo:'🥛'},
+     ]},
+  ]
+},
+{
+  id:'phumisiri', bldg:'อาคารภูมิสิริมังคลานุสรณ์',
+  name:'ศูนย์อาหาร ภูมิสิริ ชั้น 14', floor:'ชั้น 14', time:'06:30–20:00',
+  desc:'โรงอาหารหลัก วิวสวนลุมพินี 350-400 ที่นั่ง ระบบคูปอง ส่วนลด 10% บุคลากร',
+  emo:'🏛️', grad:'linear-gradient(135deg,#e8f0ff,#dce8ff)',
+  shops:[
+    {name:'ก๋วยเตี๋ยวเรืออยุธยา', desc:'ก๋วยเตี๋ยวเรือน้ำตก ลูกชิ้นปิ้ง',
+     items:[
+      {id:'ph1',nm:'ก๋วยเตี๋ยวเรือน้ำตก (เนื้อ)',cal:390,p:26,c:48,f:10,price:60,emo:'🍜'},
+      {id:'ph2',nm:'ก๋วยเตี๋ยวเรือน้ำตก (หมู)',cal:350,p:22,c:46,f:8,price:55,emo:'🍜'},
+      {id:'ph3',nm:'ลูกชิ้นปิ้ง (ไม้)',cal:90,p:7,c:8,f:3,price:15,emo:'🍡'},
+     ]},
+    {name:'ราดหน้ายอดผัก', desc:'ราดหน้าหมูนุ่ม ผัดซีอิ๊ว หมี่กรอบ',
+     items:[
+      {id:'ph4',nm:'ราดหน้าหมูนุ่ม',cal:480,p:24,c:62,f:14,price:55,emo:'🥩'},
+      {id:'ph5',nm:'ผัดซีอิ๊วหมู',cal:460,p:22,c:66,f:12,price:50,emo:'🍝'},
+      {id:'ph6',nm:'หมี่กรอบราดหน้า',cal:520,p:18,c:74,f:16,price:65,emo:'🍜'},
+     ]},
+    {name:'ข้าวมันไก่ตอน', desc:'ข้าวมันไก่ต้ม ไก่ทอด ไก่ผสม',
+     items:[
+      {id:'ph7',nm:'ข้าวมันไก่ต้ม',cal:490,p:32,c:58,f:14,price:55,emo:'🐔'},
+      {id:'ph8',nm:'ข้าวมันไก่ทอด',cal:580,p:30,c:60,f:22,price:60,emo:'🍗'},
+      {id:'ph9',nm:'ข้าวมันไก่ผสม',cal:535,p:31,c:59,f:18,price:60,emo:'🍗'},
+     ]},
+    {name:'ร้านอาหารตามสั่ง', desc:'กะเพรา ผัดคะน้า ข้าวผัด',
+     items:[
+      {id:'ph10',nm:'ข้าวกะเพราไก่+ไข่ดาว',cal:590,p:30,c:62,f:22,price:70,emo:'🌿'},
+      {id:'ph11',nm:'ข้าวผัดกุ้ง',cal:520,p:22,c:68,f:14,price:80,emo:'🍤'},
+      {id:'ph12',nm:'ผัดคะน้าหมูกรอบ+ข้าว',cal:510,p:24,c:60,f:20,price:75,emo:'🥬'},
+     ]},
+    {name:'ร้านข้าวแกง (สุขภาพ)', desc:'อาหารปรุงสำเร็จ เน้นสุขภาพ',
+     items:[
+      {id:'ph13',nm:'ข้าวราดแกง 2 อย่าง',cal:450,p:22,c:62,f:12,price:45,emo:'🍛'},
+      {id:'ph14',nm:'แกงจืดเต้าหู้หมูสับ',cal:180,p:14,c:12,f:8,price:35,emo:'🍲'},
+      {id:'ph15',nm:'ต้มข่าไก่',cal:280,p:24,c:10,f:16,price:40,emo:'🍗'},
+     ]},
+    {name:'KUDSAN (คัดสรร) / 7-Eleven', desc:'กาแฟ เบเกอรี่ โดรายากิ ตลอด 24 ชั่วโมง',
+     items:[
+      {id:'ph16',nm:'โดรายากิ (ขนม)',cal:180,p:4,c:34,f:4,price:36,emo:'🥮'},
+      {id:'ph17',nm:'ขนมปังโฮลวีททูน่า',cal:270,p:14,c:38,f:6,price:45,emo:'🥪'},
+      {id:'ph18',nm:'กาแฟลาเต้เย็น',cal:150,p:5,c:22,f:5,price:45,emo:'☕'},
+      {id:'ph19',nm:'น้ำสมุนไพร (ต่างๆ)',cal:80,p:0,c:20,f:0,price:25,emo:'🍹'},
+     ]},
+    {name:'ร้าน S&P (ชั้น 2)', desc:'อาหารไทย เบเกอรี่ มาตรฐาน',
+     items:[
+      {id:'ph20',nm:'S&P ผัดไทยกุ้ง',cal:520,p:22,c:72,f:14,price:145,emo:'🍤'},
+      {id:'ph21',nm:'S&P แกงเขียวหวานไก่+ข้าว',cal:560,p:28,c:68,f:18,price:135,emo:'🍛'},
+      {id:'ph22',nm:'S&P เค้กช็อกโกแลต',cal:320,p:5,c:48,f:14,price:120,emo:'🎂'},
+     ]},
+    {name:'Cafe Amazon (ชั้น 1)', desc:'กาแฟ เครื่องดื่ม',
+     items:[
+      {id:'ph23',nm:'Amazon Americano เย็น',cal:10,p:0,c:2,f:0,price:55,emo:'☕'},
+      {id:'ph24',nm:'Amazon Caramel Macchiato',cal:180,p:4,c:34,f:4,price:75,emo:'☕'},
+      {id:'ph25',nm:'Amazon Smoothie ผลไม้',cal:200,p:2,c:48,f:0,price:85,emo:'🥤'},
+     ]},
+  ]
+},
+{
+  id:'sk', bldg:'อาคาร สก (ศูนย์การแพทย์สมเด็จพระบรมราชินีนาถ)',
+  name:'ศูนย์อาหาร สก ชั้น 11', floor:'ชั้น 11', time:'06:30–15:00',
+  desc:'ราคาเริ่ม 30 บาท บริหารโดยมูลนิธิ ดร.อุกฤษ มงคลนาวิน เน้นย่อมเยา เปิดจ.-ศ.',
+  emo:'🏥', grad:'linear-gradient(135deg,#f0fff9,#e0f8f0)',
+  shops:[
+    {name:'ร้านข้าวราดแกง', desc:'ข้าวราดแกง 2 อย่างราคาประหยัด',
+     items:[
+      {id:'sk1',nm:'ข้าวราดแกง 2 อย่าง',cal:430,p:20,c:58,f:12,price:38,emo:'🍛'},
+      {id:'sk2',nm:'ข้าวราดต้มยำกุ้ง',cal:410,p:28,c:52,f:10,price:45,emo:'🍤'},
+      {id:'sk3',nm:'แกงจืดผักรวม',cal:120,p:6,c:16,f:4,price:30,emo:'🥗'},
+     ]},
+    {name:'ร้านก๋วยเตี๋ยว', desc:'ก๋วยจั๊บ ต้มเลือดหมู เมนูยอดนิยม',
+     items:[
+      {id:'sk4',nm:'ก๋วยจั๊บ',cal:350,p:18,c:48,f:8,price:45,emo:'🍜'},
+      {id:'sk5',nm:'ต้มเลือดหมู',cal:400,p:20,c:50,f:12,price:40,emo:'🍲'},
+      {id:'sk6',nm:'ก๋วยเตี๋ยวน้ำใสหมู',cal:300,p:18,c:42,f:6,price:35,emo:'🍜'},
+     ]},
+    {name:'ร้านอาหารใต้', desc:'คั่วกลิ้ง ไข่เจียว รสจัด',
+     items:[
+      {id:'sk7',nm:'คั่วกลิ้ง+ไข่เจียวราดข้าว',cal:550,p:26,c:56,f:24,price:40,emo:'🌶️'},
+      {id:'sk8',nm:'ข้าวขาหมู',cal:650,p:34,c:66,f:28,price:50,emo:'🐖'},
+      {id:'sk9',nm:'แกงส้มผัก',cal:160,p:8,c:22,f:4,price:35,emo:'🥘'},
+     ]},
+    {name:'ร้านน้ำสมุนไพร/ของหวาน', desc:'เครื่องดื่มสมุนไพร ราคาถูก',
+     items:[
+      {id:'sk10',nm:'น้ำลำไย',cal:120,p:0,c:30,f:0,price:15,emo:'🍹'},
+      {id:'sk11',nm:'น้ำเก๊กฮวย',cal:60,p:0,c:15,f:0,price:15,emo:'🌸'},
+      {id:'sk12',nm:'วุ้นมะพร้าว',cal:80,p:1,c:20,f:0,price:20,emo:'🥥'},
+     ]},
+  ]
+},
+{
+  id:'sth', bldg:'อาคาร ส.ธ. (ศูนย์การแพทย์สิริกิติ์)',
+  name:'ศูนย์อาหาร ส.ธ. ชั้น 2', floor:'ชั้น 2', time:'06:30–16:00 (เสาร์07:00–14:00)',
+  desc:'ราคาย่อมเยา เน้นสุขภาพ จัดโซนนั่งสำหรับผู้ป่วย/ผู้สูงอายุ ส่วนลด 10% บุคลากร',
+  emo:'🏥', grad:'linear-gradient(135deg,#fffff0,#f0fff0)',
+  shops:[
+    {name:'ร้านอาหารตามสั่ง', desc:'ตามสั่งไทย ราคาย่อมเยา',
+     items:[
+      {id:'st1',nm:'ผัดกะเพราหมู+ข้าว',cal:490,p:26,c:58,f:16,price:45,emo:'🌿'},
+      {id:'st2',nm:'ไข่เจียวหมูสับ+ข้าว',cal:460,p:22,c:56,f:18,price:40,emo:'🍳'},
+      {id:'st3',nm:'ต้มจืดผักรวม',cal:100,p:5,c:14,f:3,price:30,emo:'🥗'},
+      {id:'st4',nm:'ปลาแซลมอนนึ่งซีอิ๊ว',cal:280,p:34,c:8,f:12,price:80,emo:'🐟'},
+     ]},
+    {name:'ร้านข้าวแกงสุขภาพ', desc:'อาหารสุขภาพ ลดน้ำมัน',
+     items:[
+      {id:'st5',nm:'ข้าวราดแกงเขียวหวาน',cal:510,p:26,c:62,f:15,price:40,emo:'🍛'},
+      {id:'st6',nm:'ข้าวราดอกไก่ย่าง',cal:400,p:34,c:52,f:6,price:45,emo:'🍗'},
+      {id:'st7',nm:'ข้าวกล้องราดต้มข่า',cal:420,p:28,c:50,f:12,price:45,emo:'🌾'},
+     ]},
+    {name:'ร้านก๋วยเตี๋ยว/อาหารเบา', desc:'ก๋วยเตี๋ยว ข้าวต้ม เส้นเล็กน้ำ',
+     items:[
+      {id:'st8',nm:'ก๋วยเตี๋ยวไก่น้ำใส',cal:280,p:22,c:38,f:5,price:35,emo:'🐔'},
+      {id:'st9',nm:'ข้าวต้มปลา',cal:220,p:18,c:30,f:4,price:35,emo:'🐟'},
+      {id:'st10',nm:'เส้นเล็กผัดขิงไก่',cal:340,p:20,c:46,f:8,price:40,emo:'🍜'},
+     ]},
+  ]
+},
+{
+  id:'opd', bldg:'อาคารจักรีทศมรามาธิบดินทร์ (OPD ใหม่ / Extended OPD)',
+  name:'ศูนย์อาหาร OPD ใหม่ ชั้น B1', floor:'ชั้น B1', time:'06:30–18:00',
+  desc:'ศูนย์อาหารเปิดใหม่ 2024 มี Eric Kayser, Food Box, ร้านอาหารไทย',
+  emo:'🆕', grad:'linear-gradient(135deg,#f5f0ff,#ebe0ff)',
+  shops:[
+    {name:'Eric Kayser × Anonymous (Coffee)', desc:'เบเกอรี่สไตล์ฝรั่งเศส กาแฟสด ส่วนลดบุคลากร',
+     items:[
+      {id:'opd1',nm:'Almond Croissant (เล็ก)',cal:280,p:6,c:32,f:14,price:65,emo:'🥐'},
+      {id:'opd2',nm:'Iced Latte (Eric Kayser)',cal:150,p:5,c:20,f:5,price:90,emo:'☕'},
+      {id:'opd3',nm:'Pain au Chocolat',cal:320,p:7,c:38,f:16,price:85,emo:'🥐'},
+      {id:'opd4',nm:'Financier เนยอัลมอนด์',cal:220,p:4,c:28,f:10,price:55,emo:'🍰'},
+     ]},
+    {name:'Food Box Shop', desc:'อาหารไทยบรรจุกล่อง ขนมจีน ปรุงสดทุกวัน',
+     items:[
+      {id:'opd5',nm:'ขนมจีนน้ำยาปลา',cal:400,p:20,c:60,f:8,price:40,emo:'🍜'},
+      {id:'opd6',nm:'ขนมจีนน้ำพริก',cal:350,p:14,c:58,f:6,price:40,emo:'🍜'},
+      {id:'opd7',nm:'ข้าวกล่องไก่ย่าง',cal:420,p:34,c:52,f:8,price:45,emo:'🍱'},
+      {id:'opd8',nm:'ข้าวกล่องผัดผักหมู',cal:430,p:22,c:58,f:12,price:40,emo:'🍱'},
+     ]},
+    {name:'เรียลฟู้ดแอนด์ดริงค์', desc:'อาหารจานเดียว เครื่องดื่มสุขภาพ',
+     items:[
+      {id:'opd9',nm:'ข้าวหน้าเป็ดย่าง',cal:510,p:28,c:62,f:16,price:75,emo:'🦆'},
+      {id:'opd10',nm:'สุกี้แห้งทะเล',cal:320,p:26,c:36,f:8,price:80,emo:'🦐'},
+      {id:'opd11',nm:'น้ำสมุนไพรเย็น',cal:70,p:0,c:18,f:0,price:30,emo:'🍵'},
+     ]},
+    {name:'Black Canyon (ชั้น 6 อาคาร ภปร)', desc:'กาแฟ อาหารตามสั่ง ราคาพิเศษ รพ.',
+     items:[
+      {id:'opd12',nm:'Black Canyon กาแฟเย็น',cal:160,p:4,c:28,f:4,price:55,emo:'☕'},
+      {id:'opd13',nm:'ข้าวไก่ย่างซอสน้ำตาลโตนด',cal:490,p:34,c:58,f:10,price:60,emo:'🍗'},
+      {id:'opd14',nm:'สปาเก็ตตี้ไก่พริกแห้ง',cal:520,p:26,c:72,f:12,price:60,emo:'🍝'},
+     ]},
+  ]
+},
+{
+  id:'aor', bldg:'อาคาร อปร / อาคารอุปการเวชกิจ',
+  name:'อาคาร อปร + อุปการเวชกิจ', floor:'ชั้น G', time:'06:00–16:00',
+  desc:'ฮาลาล (ข้าวหมกไก่ 25 บาท) + Puff & Pie + Pacamara Coffee + Black Canyon',
+  emo:'🕌', grad:'linear-gradient(135deg,#fff8e1,#fffde7)',
+  shops:[
+    {name:'มะฮ์ ฮาลาลฟู้ด (อาคาร อปร)', desc:'ฮาลาล ข้าวหมกไก่ ซุปเนื้อ มักขายหมดก่อนเที่ยง',
+     items:[
+      {id:'aor1',nm:'ข้าวหมกไก่',cal:500,p:30,c:64,f:14,price:25,emo:'🍚'},
+      {id:'aor2',nm:'ซุปเนื้อ',cal:220,p:28,c:10,f:8,price:35,emo:'🍲'},
+      {id:'aor3',nm:'ข้าวหมกเนื้อ',cal:560,p:36,c:66,f:16,price:45,emo:'🍚'},
+      {id:'aor4',nm:'แกงมัสมั่นไก่+ข้าว',cal:580,p:30,c:68,f:20,price:50,emo:'🍛'},
+     ]},
+    {name:'Puff & Pie (อุปการเวชกิจ)', desc:'พาย ขนมอบ เบเกอรี่ CPF',
+     items:[
+      {id:'aor5',nm:'พายไก่อบ',cal:380,p:14,c:46,f:16,price:75,emo:'🥧'},
+      {id:'aor6',nm:'พายหมูสับชีส',cal:400,p:16,c:44,f:18,price:80,emo:'🥧'},
+      {id:'aor7',nm:'เค้กเนยสดสับปะรด',cal:290,p:4,c:42,f:12,price:65,emo:'🍰'},
+     ]},
+    {name:'Pacamara Coffee (อุปการเวชกิจ)', desc:'กาแฟสด สูตรพิเศษ',
+     items:[
+      {id:'aor8',nm:'Pacamara Espresso',cal:10,p:0,c:2,f:0,price:60,emo:'☕'},
+      {id:'aor9',nm:'Pacamara Oat Latte เย็น',cal:160,p:4,c:28,f:3,price:95,emo:'☕'},
+      {id:'aor10',nm:'Cold Brew',cal:20,p:0,c:4,f:0,price:80,emo:'🧊'},
+     ]},
+    {name:'กาโตว์ เฮ้าส์ + แบลคแคนยอน', desc:'ขนมหวาน + กาแฟ',
+     items:[
+      {id:'aor11',nm:'กาโตว์ เนยสด (ชิ้น)',cal:280,p:4,c:36,f:14,price:65,emo:'🎂'},
+      {id:'aor12',nm:'Black Canyon Mocha เย็น',cal:200,p:4,c:36,f:5,price:65,emo:'☕'},
+     ]},
+    {name:"ลุงกับป้า / ไทโซะ (หอพักปรีดาลัย)", desc:'ตามสั่งขวัญใจนิสิตแพทย์',
+     items:[
+      {id:'aor13',nm:'ข้าวกะเพราหมูไข่ดาว',cal:560,p:28,c:62,f:22,price:45,emo:'🌿'},
+      {id:'aor14',nm:'ข้าวต้มหมูสับ',cal:280,p:18,c:38,f:6,price:35,emo:'🍚'},
+      {id:'aor15',nm:'บะหมี่กึ่งสำเร็จรูปต้มไข่',cal:380,p:14,c:58,f:10,price:25,emo:'🍜'},
+     ]},
+  ]
+},
+{
+  id:'community', bldg:'ชุมชน ฬ (หลังตึกวชิรุณหิศ)',
+  name:'ชุมชน ฬ', floor:'ชั้น G', time:'05:30–16:00',
+  desc:'Grab & Go เปิดเช้าตรู่ 05:30 น. 4 ร้านคีออส บรรยากาศสบาย รองรับผู้ที่มีเวลาจำกัด',
+  emo:'🌿', grad:'linear-gradient(135deg,#e8fdf2,#d4f8e6)',
+  shops:[
+    {name:'อ้อยข้าวกล่อง', desc:'ข้าวกล่องไทยปรุงสด เมนูเปลี่ยนรายวัน ราคา 35 บาทเท่ากันทุกเมนู',
+     items:[
+      {id:'cm1',nm:'ข้าวกล่องกะเพราไก่',cal:490,p:26,c:58,f:16,price:35,emo:'🌿'},
+      {id:'cm2',nm:'ข้าวกล่องผัดคะน้าหมูกรอบ',cal:510,p:24,c:60,f:20,price:35,emo:'🥬'},
+      {id:'cm3',nm:'ข้าวกล่องต้มข่าไก่',cal:440,p:28,c:54,f:12,price:35,emo:'🍗'},
+      {id:'cm4',nm:'ข้าวกล่องแกงเขียวหวาน',cal:520,p:26,c:64,f:16,price:35,emo:'🍛'},
+     ]},
+    {name:'พิศมัย', desc:'ขนมจีน อาหารกล่อง',
+     items:[
+      {id:'cm5',nm:'ขนมจีนน้ำยาปลา',cal:380,p:18,c:58,f:8,price:40,emo:'🍜'},
+      {id:'cm6',nm:'ขนมจีนแกงเขียวหวาน',cal:420,p:20,c:62,f:10,price:45,emo:'🍜'},
+      {id:'cm7',nm:'ข้าวกล่องปลาทอดราดน้ำปลา',cal:480,p:30,c:56,f:14,price:45,emo:'🐟'},
+     ]},
+    {name:'นุ๊คแน๊ค', desc:'ขนมหวาน ของหวาน อาหารว่าง',
+     items:[
+      {id:'cm8',nm:'ขนมถ้วย (2 ชิ้น)',cal:140,p:2,c:28,f:2,price:20,emo:'🍮'},
+      {id:'cm9',nm:'ข้าวเหนียวมะม่วง',cal:360,p:5,c:68,f:8,price:45,emo:'🥭'},
+      {id:'cm10',nm:'ทับทิมกรอบ',cal:180,p:1,c:42,f:0,price:25,emo:'🍡'},
+     ]},
+    {name:'มิลาเนส', desc:'เครื่องดื่มหลากหลาย ชา กาแฟ น้ำผลไม้',
+     items:[
+      {id:'cm11',nm:'ชาเย็น',cal:100,p:1,c:22,f:1,price:25,emo:'🧋'},
+      {id:'cm12',nm:'กาแฟเย็น',cal:80,p:2,c:14,f:2,price:30,emo:'☕'},
+      {id:'cm13',nm:'น้ำผลไม้สด',cal:90,p:1,c:22,f:0,price:30,emo:'🍊'},
+      {id:'cm14',nm:'ลิ้นจี่น้ำแข็ง',cal:70,p:0,c:18,f:0,price:25,emo:'🍹'},
+     ]},
+  ]
+}
+];
+
+/* ====== STATE ====== */
+var selected={}, quantities={}, builtPages={};
+var userGoal='maintain', userTDEE=2000, userWeight=60;
+var currentLevel='beginner', weeklyVariant=0;
+var ingRows=[], ingIdCounter=0;
+
+/* page key -> index for nav tabs */
+var pageKeys=['home','bwell','phumisiri','sk','sth','opd','aor','community','tdee','exercise','cook','chula','about'];
+
+/* ====== NAVIGATION ====== */
+function showPage(k){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.ntab').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.bnav-btn').forEach(function(b){b.classList.remove('active');});
+  var pg=document.getElementById('page-'+k);
+  if(pg) pg.classList.add('active');
+  var idx=pageKeys.indexOf(k);
+  var ntabs=document.querySelectorAll('.ntab');
+  if(idx>=0 && ntabs[idx]) ntabs[idx].classList.add('active');
+  /* build food page on demand */
+  var foodKeys=['bwell','phumisiri','sk','sth','opd','aor','community'];
+  if(foodKeys.indexOf(k)>=0 && !builtPages[k]){buildFoodPage(k);builtPages[k]=true;}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ====== HOME GRID ====== */
+function buildHomeGrid(){
+  var bldgs=[
+    {id:'bwell',title:'Bwell Food Mall (ทวีวงศ์ถวัลยศักดิ์)'},
+    {id:'phumisiri',title:'อาคารภูมิสิริมังคลานุสรณ์ ชั้น 14'},
+    {id:'sk',title:'อาคาร สก ชั้น 11'},
+    {id:'sth',title:'อาคาร ส.ธ. ชั้น 2'},
+    {id:'opd',title:'OPD ใหม่ (จักรีทศมฯ) ชั้น B1'},
+    {id:'aor',title:'อาคาร อปร / อุปการเวชกิจ'},
+    {id:'community',title:'ชุมชน ฬ (หลังตึกวชิรุณหิศ)'},
+  ];
+  var grads=['linear-gradient(135deg,#fdf0ee,#fde8e8)','linear-gradient(135deg,#e8f0ff,#dce8ff)','linear-gradient(135deg,#f0fff9,#e0f8f0)','linear-gradient(135deg,#fffff0,#f0fff0)','linear-gradient(135deg,#f5f0ff,#ebe0ff)','linear-gradient(135deg,#fff8e1,#fffde7)','linear-gradient(135deg,#e8fdf2,#d4f8e6)'];
+  var sections='';
+  for(var i=0;i<canteens.length;i++){
+    var c=canteens[i];
+    var cnt=0; for(var s=0;s<c.shops.length;s++) cnt+=c.shops[s].items.length;
+    sections+='<div class="card" style="padding:0;overflow:hidden;cursor:pointer" onclick="showPage(\''+c.id+'\')">' +
+      '<div style="background:'+grads[i]+';padding:16px 18px;display:flex;align-items:center;gap:12px">' +
+      '<div style="font-size:38px">'+c.emo+'</div>' +
+      '<div><div style="font-family:Prompt,sans-serif;font-size:14px;font-weight:800">'+c.bldg+'</div>' +
+      '<div style="font-size:11px;color:var(--sub);margin-top:2px">'+c.floor+' | '+c.time+'</div></div>' +
+      '<div style="margin-left:auto;text-align:right">' +
+      '<div style="font-family:Prompt,sans-serif;font-size:18px;font-weight:800;color:var(--red)">'+c.shops.length+'</div><div style="font-size:10px;color:var(--sub)">ร้าน</div></div>' +
+      '<div style="margin-left:10px;text-align:right">' +
+      '<div style="font-family:Prompt,sans-serif;font-size:18px;font-weight:800;color:var(--red)">'+cnt+'</div><div style="font-size:10px;color:var(--sub)">เมนู</div></div>' +
+      '</div>' +
+      '<div style="padding:12px 18px;font-size:12px;color:var(--sub);border-top:1px solid var(--border)">'+c.desc+'</div>' +
+      '</div>';
+  }
+  document.getElementById('home-grid').innerHTML=sections;
+}
+
+/* ====== FOOD PAGE ====== */
+function getCan(k){for(var i=0;i<canteens.length;i++) if(canteens[i].id===k) return canteens[i]; return null;}
+
+function buildFoodPage(k){
+  var can=getCan(k);
+  var el=document.getElementById('page-'+k);
+  var lhtml='<div style="padding:10px 0 12px">' +
+    '<div style="font-family:Prompt,sans-serif;font-size:18px;font-weight:800;margin-bottom:2px">'+can.emo+' '+can.bldg+'</div>' +
+    '<div style="color:var(--sub);font-size:11px">'+can.desc+'</div>' +
+    '<div style="font-size:11px;color:var(--sub);margin-top:3px">⏰ '+can.time+' | '+can.floor+'</div></div>' +
+    '<input class="srch" type="text" placeholder="🔍 ค้นหาเมนู..." oninput="filterFood(\''+k+'\',this.value)">';
+  for(var si=0;si<can.shops.length;si++){
+    var shop=can.shops[si];
+    lhtml+='<div class="food-sec-hd" id="sh-'+k+'-'+si+'"><span>🏪 '+shop.name+'</span><span style="font-weight:400;font-size:10px;color:var(--sub)">'+shop.desc+'</span></div>';
+    lhtml+='<div class="food-grid" id="fg-'+k+'-'+si+'">';
+    for(var fi=0;fi<shop.items.length;fi++) lhtml+=buildFC(shop.items[fi],k);
+    lhtml+='</div>';
+  }
+  el.innerHTML='<div class="food-layout"><div>'+lhtml+'</div>'+buildSumPanel(k)+'</div>';
+  updateSum(k);
+}
+
+function buildFC(f,k){
+  var s=selected[f.id]?'sel':'';
+  return '<div class="fc '+s+'" id="fc-'+f.id+'" onclick="toggleFood(\''+f.id+'\',\''+k+'\')">' +
+    '<div class="fc-emo">'+f.emo+'</div>' +
+    '<div class="fc-info"><div class="fc-nm">'+f.nm+'</div>' +
+    '<div class="fc-cal">'+f.cal+' <small>kcal</small></div>' +
+    (f.price?'<div class="fc-price">฿'+f.price+'</div>':'')+
+    '</div></div>';
+}
+
+function buildSumPanel(k){
+  return '<div class="sum-panel">' +
+    '<div class="sum-title">🧮 รายการที่เลือก</div>' +
+    '<div class="cal-disp">' +
+      '<div class="cal-big" id="sp-cal-'+k+'">0</div>' +
+      '<div class="cal-unit">kcal รวม</div>' +
+      '<div class="cal-rem" id="sp-rem-'+k+'">เป้า: '+userTDEE+' kcal</div>' +
+    '</div>' +
+    '<div class="gauge"><div class="g-lbl"><span>0%</span><span id="sp-gl-'+k+'">เป้า '+userTDEE+' kcal</span></div>' +
+    '<div class="g-track"><div class="g-fill" id="sp-g-'+k+'" style="width:0%"></div></div></div>' +
+    '<div class="mac-row">' +
+      '<div class="mac-box"><div class="mac-val" style="color:#06D6A0" id="sp-p-'+k+'">0g</div><div class="mac-nm">โปรตีน</div></div>' +
+      '<div class="mac-box"><div class="mac-val" style="color:#FFD166" id="sp-c-'+k+'">0g</div><div class="mac-nm">คาร์บ</div></div>' +
+      '<div class="mac-box"><div class="mac-val" style="color:#EF233C" id="sp-f-'+k+'">0g</div><div class="mac-nm">ไขมัน</div></div>' +
+    '</div>' +
+    '<div id="sp-list-'+k+'" class="sel-list"><div class="empty-st"><div class="eico">🍽️</div><p style="font-size:11px">คลิกเมนูเพื่อเพิ่ม</p></div></div>' +
+    '<button class="btn-clr" onclick="clearAll(\''+k+'\')">🗑️ ล้างทั้งหมด</button>' +
+    '<div class="tip-box" id="sp-tip-'+k+'"><strong>💡 เคล็ดลับ</strong>เลือกเมนูแล้วปรับจำนวนด้วย + −</div>' +
+    '</div>';
+}
+
+function toggleFood(id,k){
+  if(!selected[id]){selected[id]=true;quantities[id]=1;}
+  else{selected[id]=false;delete quantities[id];}
+  var el=document.getElementById('fc-'+id);
+  if(el) el.className='fc'+(selected[id]?' sel':'');
+  updateSum(k);
+}
+function changeQty(id,k,d){
+  if(!selected[id]) return;
+  quantities[id]=(quantities[id]||1)+d;
+  if(quantities[id]<1) quantities[id]=1;
+  updateSum(k);
+}
+function updateSum(k){
+  var can=getCan(k);
+  var tot=0,p=0,c=0,f=0,items=[];
+  for(var si=0;si<can.shops.length;si++) for(var fi=0;fi<can.shops[si].items.length;fi++){
+    var fd=can.shops[si].items[fi];
+    if(selected[fd.id]){var q=quantities[fd.id]||1;tot+=fd.cal*q;p+=fd.p*q;c+=fd.c*q;f+=fd.f*q;items.push({f:fd,q:q});}
+  }
+  var cEl=document.getElementById('sp-cal-'+k); if(!cEl) return;
+  cEl.textContent=tot;
+  var rem=userTDEE-tot;
+  document.getElementById('sp-rem-'+k).textContent=rem>=0?'เหลือ: '+rem+' kcal':'เกิน: '+Math.abs(rem)+' kcal';
+  var pct=Math.min(100,Math.round(tot/userTDEE*100));
+  document.getElementById('sp-g-'+k).style.width=pct+'%';
+  document.getElementById('sp-gl-'+k).textContent=pct+'% ของ '+userTDEE+' kcal';
+  document.getElementById('sp-p-'+k).textContent=p+'g';
+  document.getElementById('sp-c-'+k).textContent=c+'g';
+  document.getElementById('sp-f-'+k).textContent=f+'g';
+  var listEl=document.getElementById('sp-list-'+k);
+  if(items.length===0){listEl.innerHTML='<div class="empty-st"><div class="eico">🍽️</div><p style="font-size:11px">คลิกเมนูเพื่อเพิ่ม</p></div>';}
+  else{var rows='';for(var j=0;j<items.length;j++){var it=items[j],fd=it.f,q=it.q;
+    rows+='<div class="sel-item"><div class="si-emo">'+fd.emo+'</div>' +
+      '<div class="si-nm">'+fd.nm+'</div>' +
+      '<div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(\''+fd.id+'\',\''+k+'\',-1)">−</button>' +
+      '<span class="qty-num">'+q+'</span>' +
+      '<button class="qty-btn" onclick="changeQty(\''+fd.id+'\',\''+k+'\',1)">+</button></div>' +
+      '<div class="si-cal">'+(fd.cal*q)+'</div>' +
+      '<button class="si-rm" onclick="toggleFood(\''+fd.id+'\',\''+k+'\')">✕</button></div>';
+  }listEl.innerHTML=rows;}
+  var tipEl=document.getElementById('sp-tip-'+k);if(!tipEl)return;
+  if(tot===0)tipEl.innerHTML='<strong>💡 เคล็ดลับ</strong>เลือกเมนูแล้วปรับจำนวนด้วย + −';
+  else if(pct<30)tipEl.innerHTML='<strong>😊 น้อยมาก!</strong> ลองเพิ่มโปรตีนให้อิ่มนานขึ้น';
+  else if(pct<=60)tipEl.innerHTML='<strong>✅ ดีมาก!</strong> แคลอรี่มื้อนี้อยู่ในเกณฑ์ดี';
+  else if(pct<=80)tipEl.innerHTML='<strong>⚠️ ค่อนข้างมาก</strong> ระวังมื้อต่อไปด้วย';
+  else tipEl.innerHTML='<strong>🔴 เกินครึ่งโควต้า!</strong> ควรออกกำลังกายเพิ่ม';
+}
+function clearAll(k){
+  var can=getCan(k);
+  for(var si=0;si<can.shops.length;si++) for(var fi=0;fi<can.shops[si].items.length;fi++){
+    var id=can.shops[si].items[fi].id; selected[id]=false; delete quantities[id];
+    var el=document.getElementById('fc-'+id); if(el) el.className='fc';
+  }updateSum(k);
+}
+function filterFood(k,q){
+  var can=getCan(k); q=q.toLowerCase().trim();
+  for(var si=0;si<can.shops.length;si++){var any=false;
+    for(var fi=0;fi<can.shops[si].items.length;fi++){var fd=can.shops[si].items[fi];
+      var el=document.getElementById('fc-'+fd.id);if(!el)continue;
+      var vis=!q||fd.nm.toLowerCase().indexOf(q)>=0;
+      el.style.display=vis?'':'none';if(vis)any=true;
+    }
+    var sh=document.getElementById('sh-'+k+'-'+si);var fg=document.getElementById('fg-'+k+'-'+si);
+    if(sh)sh.style.display=any?'':'none';if(fg)fg.style.display=any?'':'none';
+  }
+}
+
+/* ====== TDEE ====== */
+var userGoal2='maintain';
+function setGoal(g,btn){
+  userGoal=g;userGoal2=g;
+  document.querySelectorAll('.goal-tab').forEach(function(t){t.classList.remove('active');});
+  btn.classList.add('active'); calcTDEE();
+}
+function calcTDEE(){
+  var g=document.getElementById('td-gender').value;
+  var age=parseFloat(document.getElementById('td-age').value)||25;
+  var w=parseFloat(document.getElementById('td-weight').value)||60;
+  var h=parseFloat(document.getElementById('td-height').value)||165;
+  var act=parseFloat(document.getElementById('td-act').value)||1.55;
+  userWeight=w;
+  var bmr=g==='male'?10*w+6.25*h-5*age+5:10*w+6.25*h-5*age-161;
+  var tdee=Math.round(bmr*act);
+  var goal=userGoal==='lose'?tdee-500:userGoal==='gain'?tdee+300:tdee;
+  userTDEE=goal;
+  var glbl=userGoal==='lose'?'🔻 เป้าลดน้ำหนัก':userGoal==='gain'?'🔺 เป้าเพิ่มน้ำหนัก':'⚖️ เป้าคงน้ำหนัก';
+  var gcol=userGoal==='lose'?'b':userGoal==='gain'?'r':'g';
+  var gdesc=userGoal==='lose'?'ลด 500 kcal จาก TDEE':userGoal==='gain'?'เพิ่ม 300 kcal จาก TDEE':'รับพลังงานเท่าที่ใช้';
+  document.getElementById('res-grid').innerHTML=
+    '<div class="res-box"><div class="res-num">'+Math.round(bmr).toLocaleString()+'</div><div class="res-unit">kcal/วัน</div><div class="res-lbl">🔥 BMR</div><div class="res-desc">พลังงานขณะพักผ่อน</div></div>'+
+    '<div class="res-box g"><div class="res-num">'+tdee.toLocaleString()+'</div><div class="res-unit">kcal/วัน</div><div class="res-lbl">✅ TDEE</div><div class="res-desc">BMR × ระดับกิจกรรม</div></div>'+
+    '<div class="res-box '+gcol+'"><div class="res-num" style="font-size:24px">'+goal.toLocaleString()+'</div><div class="res-unit">kcal/วัน</div><div class="res-lbl">'+glbl+'</div><div class="res-desc">'+gdesc+'</div></div>'+
+    '<div class="res-box p"><div class="res-num" style="font-size:22px">'+Math.round(w*1.4)+'g</div><div class="res-unit">โปรตีน/วัน</div><div class="res-lbl">💪 โปรตีนแนะนำ</div><div class="res-desc">1.4g × น้ำหนักตัว</div></div>';
+  var bmi=w/((h/100)*(h/100));var bmir=Math.round(bmi*10)/10;
+  var pct=Math.min(100,Math.max(0,(bmi-16)/24*100));
+  document.getElementById('bmi-ptr').style.left=pct+'%';
+  var bd=document.getElementById('bmi-desc');
+  if(bmi<18.5){bd.style.background='#e8f4ff';bd.style.color='#1a5276';bd.innerHTML='BMI: <strong>'+bmir+'</strong> — ผอมเกินเกณฑ์ ควรเพิ่มน้ำหนัก';}
+  else if(bmi<23){bd.style.background='#e8faf2';bd.style.color='#1e8449';bd.innerHTML='BMI: <strong>'+bmir+'</strong> — ✅ ปกติ ดีมาก!';}
+  else if(bmi<25){bd.style.background='#fef9e7';bd.style.color='#7d6608';bd.innerHTML='BMI: <strong>'+bmir+'</strong> — ⚠️ เกินเล็กน้อย';}
+  else if(bmi<30){bd.style.background='#fef5ec';bd.style.color='#935116';bd.innerHTML='BMI: <strong>'+bmir+'</strong> — ⚠️ น้ำหนักเกิน';}
+  else{bd.style.background='#fdedec';bd.style.color='#922b21';bd.innerHTML='BMI: <strong>'+bmir+'</strong> — 🔴 อ้วน ควรปรึกษาแพทย์';}
+  buildAgeTable(age);renderMealPlan(goal,w);renderWeekly(goal);
+  var ew=document.getElementById('ex-w');if(ew)ew.textContent=w;
+  renderWeekGrid();updateCookTotal();
+}
+function buildAgeTable(age){
+  var rows=[['เด็กเล็ก','2–3','1,000–1,200','1,000–1,200','โปรตีน แคลเซียม',[2,3]],
+    ['เด็กโต','4–8','1,200–1,600','1,200–1,400','ผลไม้ นม ผัก',[4,8]],
+    ['เด็กโต','9–13','1,600–2,200','1,400–1,800','วัยเจริญเติบโต',[9,13]],
+    ['วัยรุ่น','14–18','2,000–3,200','1,800–2,400','กระดูก กล้ามเนื้อ',[14,18]],
+    ['วัยทำงาน','19–30','2,400–3,000','1,800–2,400','นักศึกษา บุคลากร',[19,30]],
+    ['กลางคน','31–50','2,200–3,000','1,800–2,200','เมแทบอลิซึมลด',[31,50]],
+    ['ผู้ใหญ่','51–65','2,000–2,800','1,600–2,200','ลดแป้ง เพิ่มใย',[51,65]],
+    ['สูงอายุ','65–80','1,800–2,200','1,600–2,000','โปรตีนสูง',[65,80]],
+    ['สูงอายุมาก','80+','1,600–2,000','1,400–1,800','อาหารอ่อน',[81,120]]];
+  var html='';
+  for(var i=0;i<rows.length;i++){
+    var r=rows[i];var hl=(age>=r[5][0]&&age<=r[5][1])?'hl':'';
+    html+='<tr class="'+hl+'"><td>'+r[0]+'</td><td>'+r[1]+'</td><td class="hl-cell">'+r[2]+'</td><td class="hl-cell">'+r[3]+'</td><td>'+r[4]+'</td></tr>';
+  }
+  document.getElementById('age-tbody').innerHTML=html;
+}
+function renderMealPlan(cal,w){
+  var gt=userGoal==='lose'?'🔻 แผนลดน้ำหนัก':userGoal==='gain'?'🔺 แผนเพิ่มน้ำหนัก':'⚖️ แผนคงน้ำหนัก';
+  document.getElementById('mp-sub').textContent=gt+' — เป้า '+cal.toLocaleString()+' kcal/วัน';
+  var b=Math.round(cal*.27),l=Math.round(cal*.37),d=Math.round(cal*.27),s=Math.round(cal*.09);
+  var meals=[
+    {t:'07:00',nm:'มื้อเช้า',cal:b,ico:'☀️',col:'#FFD166',bg:'#fffdf0',items:[{nm:'ข้าวต้ม/ข้าวโอ๊ต',c:Math.round(b*.4)},{nm:'ไข่ต้ม 2 ฟอง',c:140},{nm:'นมไขมันต่ำ',c:80},{nm:'ผลไม้สด',c:Math.round(b*.15)}]},
+    {t:'10:00',nm:'มื้อว่าง',cal:s,ico:'🍎',col:'#06D6A0',bg:'#f0fff9',items:[{nm:'ผลไม้สด',c:Math.round(s*.7)},{nm:'ถั่ว/โยเกิร์ต',c:Math.round(s*.3)}]},
+    {t:'12:00',nm:'มื้อกลางวัน',cal:l,ico:'🌤️',col:'#C0392B',bg:'#fff8f5',items:[{nm:'ข้าวสวย',c:160},{nm:'โปรตีน',c:Math.round(l*.3)},{nm:'ผัดผัก/แกง',c:Math.round(l*.2)},{nm:'น้ำเปล่า',c:0}]},
+    {t:'17:00',nm:'มื้อเย็น',cal:d,ico:'🌇',col:'#4361EE',bg:'#f5f7ff',items:[{nm:'ข้าวกล้อง',c:Math.round(d*.3)},{nm:'ปลา/ไก่ย่าง',c:Math.round(d*.4)},{nm:'ผักต้ม',c:Math.round(d*.2)},{nm:'น้ำเปล่า',c:0}]}];
+  var html='';
+  for(var i=0;i<meals.length;i++){var m=meals[i];
+    html+='<div class="meal-row"><div class="meal-badge" style="background:'+m.bg+';border-left:3px solid '+m.col+'"><div class="mico">'+m.ico+'</div><div class="mnm">'+m.nm+'</div><div class="mtm">'+m.t+'</div></div><div class="meal-body">';
+    for(var j=0;j<m.items.length;j++){var it=m.items[j];html+='<div class="meal-item"><span>'+it.nm+'</span><span class="mic">'+(it.c?it.c+' kcal':'—')+'</span></div>';}
+    html+='<div class="meal-tot"><span>รวม</span><span class="meal-tot-c">'+m.cal+' kcal</span></div></div></div>';
+  }
+  html+='<div style="background:linear-gradient(135deg,#6b0f0f,#C0392B);border-radius:12px;padding:14px;color:#fff;text-align:center;margin-top:10px"><div style="font-size:11px;opacity:.6">รวมทั้งวัน</div><div style="font-family:Prompt,sans-serif;font-size:36px;font-weight:800;color:#FFD166">'+cal.toLocaleString()+'</div><div style="font-size:11px;opacity:.6">kcal</div></div>';
+  document.getElementById('mp-content').innerHTML=html;
+}
+/* WEEKLY */
+var wMenus={
+  lose:[[{nm:'โจ๊กปลา+ไข่ต้ม',c:280},{nm:'สลัดอกไก่+ข้าวกล้อง',c:350},{nm:'ปลานึ่ง+ผักต้ม',c:280}],[{nm:'ข้าวโอ๊ต+นม',c:300},{nm:'ก๋วยเตี๋ยวไก่น้ำใส',c:280},{nm:'ต้มข่าไก่+ข้าวกล้อง',c:320}],[{nm:'ไข่ดาว 2 ฟอง+ผัดผัก',c:290},{nm:'ข้าวราดต้มยำ',c:430},{nm:'ยำวุ้นเส้น+สลัด',c:250}],[{nm:'สมูทตี้+ไข่ต้ม',c:270},{nm:'ซูชิรวม',c:320},{nm:'ผัดผักรวมไก่',c:290}],[{nm:'ข้าวต้มปลา',c:220},{nm:'ข้าวไก่ย่าง(ข้าวน้อย)',c:380},{nm:'แกงจืดเต้าหู้',c:280}],[{nm:'แพนเค้กโฮลวีต',c:320},{nm:'สลัดทูน่า+ขนมปัง',c:350},{nm:'กะเพราไก่+ข้าว',c:420}],[{nm:'โยเกิร์ต+ผลไม้',c:250},{nm:'ข้าวมันไก่(น้อย)',c:380},{nm:'ต้มจืดผัก+ปลา',c:300}]],
+  maintain:[[{nm:'ข้าวต้ม+ไข่พะโล้',c:350},{nm:'ข้าวราดแกงเขียวหวาน',c:520},{nm:'ผัดกะเพราหมู+ข้าว',c:490}],[{nm:'ข้าวโอ๊ต+ไข่+นม',c:380},{nm:'ก๋วยเตี๋ยวเนื้อตุ๋น',c:410},{nm:'ต้มข่าไก่+ข้าว',c:460}],[{nm:'แซนวิช+นม',c:400},{nm:'ข้าวไก่ย่าง+ผัก',c:430},{nm:'ผัดซีอิ๊ว+ไข่ดาว',c:450}],[{nm:'ข้าวต้มหมู+ไข่',c:360},{nm:'ราเมนชาชู',c:520},{nm:'ผัดผัก+ข้าว+ปลา',c:450}],[{nm:'ขนมปัง+ไข่+นม',c:370},{nm:'ข้าวมันไก่',c:490},{nm:'แกงจืด+ข้าว',c:420}],[{nm:'แพนเค้ก+ผลไม้',c:420},{nm:'ผัดไทยกุ้ง',c:520},{nm:'ไก่ย่าง+ข้าวกล้อง',c:480}],[{nm:'ข้าวโอ๊ต+ถั่ว',c:360},{nm:'ข้าวหมูแดงหมูกรอบ',c:560},{nm:'ต้มยำกุ้ง+ข้าว',c:430}]],
+  gain:[[{nm:'ข้าว 2 ทัพพี+ไข่ 3 ฟอง+นม',c:600},{nm:'มัสมั่นเนื้อ+ไข่ดาว',c:700},{nm:'กะเพราหมู+ข้าว+ไข่',c:600}],[{nm:'ข้าวโอ๊ต+กล้วย+นม+ไข่',c:550},{nm:'ข้าวมันไก่+ไข่พะโล้',c:680},{nm:'แกงเขียวหวาน+ไข่',c:620}],[{nm:'ขนมปัง 4 แผ่น+ไข่+นม',c:580},{nm:'ข้าวหมูแดงหมูกรอบ',c:560},{nm:'ราเมนชาชู+ไข่',c:620}],[{nm:'ข้าวต้ม+ไข่ 3+หมูสับ',c:540},{nm:'ก๋วยเตี๋ยว+ข้าวมันไก่',c:900},{nm:'ผัดซีอิ๊ว+ไก่+ข้าว',c:580}],[{nm:'โจ๊กหมูสับ+ไข่+นม',c:520},{nm:'ข้าวไก่ย่าง+ข้าวราดแกง',c:780},{nm:'ต้มข่าไก่+ข้าว 2 ทัพพี',c:620}],[{nm:'แพนเค้ก 4 ชิ้น+นม',c:600},{nm:'ผัดไทย+ข้าวมันไก่',c:900},{nm:'ไก่ย่าง+ข้าวกล้อง 2 ทัพพี',c:680}],[{nm:'สมูทตี้โปรตีน+ข้าวโอ๊ต',c:580},{nm:'ข้าวราดแกง 2 อย่าง+ไข่',c:820},{nm:'กะเพราหมู+ข้าว+ไข่',c:640}]]
+};
+var days=['จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์','อาทิตย์'];
+function renderWeekly(cal){
+  var v=weeklyVariant%2;var planData=wMenus[userGoal];
+  var html='<div style="overflow-x:auto"><table class="weekly-table">';
+  html+='<tr><th>วัน</th><th>มื้อเช้า</th><th>มื้อกลางวัน</th><th>มื้อเย็น</th><th>รวม</th></tr>';
+  for(var d=0;d<7;d++){
+    var row=planData[d];if(v){row=[planData[(d+3)%7][0],planData[(d+5)%7][1],planData[(d+2)%7][2]];}
+    var tot=row[0].c+row[1].c+row[2].c;
+    html+='<tr><td class="wday-head">'+days[d]+'</td>';
+    for(var m=0;m<3;m++){var it=row[m];html+='<td class="mcell"><div class="nm">'+it.nm+'</div><div class="cl">'+it.c+' kcal</div></td>';}
+    html+='<td style="text-align:center;font-family:Prompt,sans-serif;font-weight:800;color:var(--red)">'+tot+'</td></tr>';
+  }
+  html+='</table></div><div style="margin-top:8px;padding:8px 12px;background:rgba(192,57,43,.05);border-radius:9px;font-size:11px;color:var(--sub)">💡 เป้าหมาย <strong style="color:var(--red)">'+cal.toLocaleString()+' kcal/วัน</strong></div>';
+  document.getElementById('weekly-content').innerHTML=html;
+}
+function refreshWeekly(){weeklyVariant++;renderWeekly(userTDEE);}
+
+/* EXERCISE */
+var exPlans={
+  beginner:{days:[{d:'จ.',ty:'crd',ico:'🚶',lbl:'เดินเร็ว 30 นาที',cb:150,col:'crd'},{d:'อ.',ty:'rest',ico:'😴',lbl:'พักผ่อน',cb:0,col:'rest'},{d:'พ.',ty:'crd',ico:'🚴',lbl:'จักรยาน 30 นาที',cb:180,col:'crd'},{d:'พฤ.',ty:'yoga',ico:'🧘',lbl:'โยคะ/ยืดเส้น',cb:80,col:'aday'},{d:'ศ.',ty:'crd',ico:'🚶',lbl:'เดินเร็ว 30 นาที',cb:150,col:'crd'},{d:'ส.',ty:'str',ico:'🏋️',lbl:'น้ำหนักตัว',cb:180,col:'str'},{d:'อา.',ty:'rest',ico:'😴',lbl:'พักผ่อน',cb:0,col:'rest'}],
+  exs:{crd:[{ico:'🚶',nm:'เดินเร็ว',desc:'30–40 นาที 5–6 กม./ชม.',c:'120–160 kcal'},{ico:'🔄',nm:'ยืดเส้น',desc:'10 นาที ก่อน-หลัง',c:''}],str:[{ico:'💪',nm:'Squat',desc:'3×12 ครั้ง',c:''},{ico:'🏋️',nm:'Push-up แบบเข่า',desc:'3×10 ครั้ง',c:''},{ico:'🦵',nm:'Lunges',desc:'3×10/ข้าง',c:''},{ico:'🤸',nm:'Plank',desc:'3×20 วินาที',c:''}],yoga:[{ico:'🧘',nm:'โยคะผ่อนคลาย',desc:'30 นาที',c:'80 kcal'}],rest:[]}},
+  intermediate:{days:[{d:'จ.',ty:'str',ico:'🏋️',lbl:'กล้ามเนื้อบน',cb:220,col:'str'},{d:'อ.',ty:'crd',ico:'🏃',lbl:'วิ่ง 30 นาที',cb:280,col:'crd'},{d:'พ.',ty:'str',ico:'🦵',lbl:'กล้ามเนื้อล่าง',cb:200,col:'str'},{d:'พฤ.',ty:'crd',ico:'🚴',lbl:'จักรยาน 45 นาที',cb:300,col:'crd'},{d:'ศ.',ty:'str',ico:'💪',lbl:'Full Body',cb:250,col:'str'},{d:'ส.',ty:'crd',ico:'⛹️',lbl:'กีฬา/HIIT',cb:400,col:'crd'},{d:'อา.',ty:'yoga',ico:'🧘',lbl:'Active Recovery',cb:80,col:'aday'}],
+  exs:{str:[{ico:'🏋️',nm:'Bench/Push-up',desc:'4×12',c:''},{ico:'🦾',nm:'Dumbbell Row',desc:'4×12/ข้าง',c:''},{ico:'🦵',nm:'Squat/Leg Press',desc:'4×15',c:''},{ico:'🤸',nm:'Plank+Side Plank',desc:'3×45 วิ',c:''}],crd:[{ico:'🏃',nm:'วิ่ง Interval',desc:'1 นาที วิ่ง / 1 นาที เดิน ×15 รอบ',c:'280 kcal'}],yoga:[{ico:'🧘',nm:'Active Recovery',desc:'โยคะ+โฟมโรล 30 นาที',c:'80 kcal'}],rest:[]}},
+  advanced:{days:[{d:'จ.',ty:'str',ico:'💪',lbl:'Push Day',cb:300,col:'str'},{d:'อ.',ty:'crd',ico:'🔥',lbl:'HIIT 30 นาที',cb:450,col:'crd'},{d:'พ.',ty:'str',ico:'🦾',lbl:'Pull Day',cb:300,col:'str'},{d:'พฤ.',ty:'crd',ico:'🏃',lbl:'วิ่ง 5–8 กม.',cb:500,col:'crd'},{d:'ศ.',ty:'str',ico:'🦵',lbl:'Legs Day',cb:350,col:'str'},{d:'ส.',ty:'crd',ico:'⛹️',lbl:'กีฬา/ว่ายน้ำ',cb:500,col:'crd'},{d:'อา.',ty:'yoga',ico:'🧘',lbl:'Active Recovery',cb:150,col:'aday'}],
+  exs:{str:[{ico:'🏋️',nm:'Barbell Squat',desc:'5×5',c:''},{ico:'💪',nm:'Deadlift',desc:'4×5',c:''},{ico:'🦾',nm:'Pull-up',desc:'4×8–10',c:''},{ico:'🤸',nm:'Core Circuit',desc:'Ab Rollout 3×8',c:''}],crd:[{ico:'🔥',nm:'HIIT Protocol',desc:'20 วิ Max/10 วิ พัก ×20 รอบ',c:'400–500 kcal'}],yoga:[{ico:'🧘',nm:'Deep Stretch',desc:'Foam Rolling 30 นาที',c:'150 kcal'}],rest:[]}}
+};
+function renderWeekGrid(){
+  var plan=exPlans[currentLevel];var w=userWeight||60;
+  var wgEl=document.getElementById('week-grid');if(!wgEl)return;
+  var html='';
+  for(var i=0;i<plan.days.length;i++){var day=plan.days[i];var adj=Math.round(day.cb*(w/60));
+    var tc=day.col==='rest'?'#aaa':day.col==='crd'?'var(--orange)':day.col==='str'?'var(--blue)':'var(--green)';
+    var tth=day.ty==='rest'?'พัก':day.ty==='crd'?'Cardio':day.ty==='str'?'Strength':'Recovery';
+    html+='<div class="day-card '+day.col+'" onclick="showExDet('+i+')">' +
+      '<div class="day-nm">'+day.d+'</div><div class="day-ico">'+day.ico+'</div>' +
+      '<div class="day-ty" style="color:'+tc+'">'+tth+'</div>' +
+      (day.cb?'<div class="day-kc">'+adj+' kcal</div>':'<div style="font-size:9px;color:#ccc">พัก</div>')+
+      '</div>';
+  }
+  wgEl.innerHTML=html;
+}
+function showExDet(idx){
+  var plan=exPlans[currentLevel];var day=plan.days[idx];var w=userWeight||60;
+  var sec=document.getElementById('ex-det-card');sec.style.display='block';
+  document.getElementById('ex-det-title').textContent=day.ico+' '+day.lbl;
+  document.getElementById('ex-det-sub').textContent=day.cb?'เผาผลาญ ~'+Math.round(day.cb*(w/60))+' kcal':'วันพักผ่อน';
+  var exList=plan.exs[day.ty]||[];
+  var html='';
+  if(!exList.length)html='<div style="text-align:center;padding:18px;color:var(--sub)">🧘 วันนี้พักผ่อน ยืดเส้นเบาๆ</div>';
+  else for(var i=0;i<exList.length;i++){var ex=exList[i];html+='<div class="ex-row"><div class="ex-ico">'+ex.ico+'</div><div class="ex-info"><div class="ex-nm">'+ex.nm+'</div><div class="ex-desc">'+ex.desc+'</div></div>'+(ex.c?'<div class="ex-cb">'+ex.c+'</div>':'')+' </div>';}
+  document.getElementById('ex-det-body').innerHTML=html;
+  sec.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function setLevel(btn,lv){
+  currentLevel=lv;
+  document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('on');});
+  btn.classList.add('on');renderWeekGrid();
+  document.getElementById('ex-det-card').style.display='none';
+}
+function renderBurnGrid(){
+  var burns=[{ico:'🚶',nm:'เดินเร็ว',c:120},{ico:'🏃',nm:'วิ่ง',c:240},{ico:'🚴',nm:'จักรยาน',c:200},{ico:'🏊',nm:'ว่ายน้ำ',c:220},{ico:'💃',nm:'แอโรบิก',c:180},{ico:'🏋️',nm:'ยกน้ำหนัก',c:150},{ico:'🧘',nm:'โยคะ',c:100},{ico:'⛹️',nm:'บาสเกตบอล',c:280}];
+  var html='';
+  for(var i=0;i<burns.length;i++){var b=burns[i];html+='<div class="buc"><div class="buc-ico">'+b.ico+'</div><div class="buc-nm">'+b.nm+'</div><div class="buc-cal">'+b.c+'</div><div class="buc-u">kcal/30 นาที</div></div>';}
+  document.getElementById('burn-grid').innerHTML=html;
+}
+
+/* COOK */
+var ingPresets=[
+  /* ข้าวและแป้ง */
+  {ico:'🍚',nm:'ข้าวสวย',cal:130},{ico:'🌾',nm:'ข้าวกล้อง',cal:123},{ico:'🌾',nm:'ข้าวโอ๊ต',cal:389},
+  {ico:'🍞',nm:'ขนมปังขาว',cal:265},{ico:'🍞',nm:'ขนมปังโฮลวีต',cal:247},{ico:'🍠',nm:'มันฝรั่ง',cal:87},
+  {ico:'🍜',nm:'เส้นบะหมี่(ต้มสุก)',cal:138},{ico:'🫓',nm:'แป้งสาลี',cal:364},
+  /* โปรตีน */
+  {ico:'🍗',nm:'อกไก่ต้ม',cal:165},{ico:'🥩',nm:'เนื้อหมูสับ',cal:242},{ico:'🥩',nm:'เนื้อวัว',cal:250},
+  {ico:'🐟',nm:'ปลาแซลมอน',cal:208},{ico:'🐟',nm:'ปลาทู',cal:130},{ico:'🦐',nm:'กุ้งต้ม',cal:99},
+  {ico:'🥚',nm:'ไข่ไก่',cal:155},{ico:'🫘',nm:'เต้าหู้แข็ง',cal:70},{ico:'🫘',nm:'เต้าหู้ไข่',cal:130},
+  /* ผักผลไม้ */
+  {ico:'🥦',nm:'บร็อคโคลี่',cal:34},{ico:'🥕',nm:'แครอท',cal:41},{ico:'🥬',nm:'ผักบุ้ง',cal:19},
+  {ico:'🍅',nm:'มะเขือเทศ',cal:18},{ico:'🌿',nm:'ใบกะเพรา',cal:30},{ico:'🌶️',nm:'พริกสด',cal:40},
+  {ico:'🧅',nm:'หัวหอม',cal:40},{ico:'🧄',nm:'กระเทียม',cal:149},{ico:'🌿',nm:'ขิง',cal:80},
+  {ico:'🍌',nm:'กล้วย',cal:89},{ico:'🍊',nm:'ส้ม',cal:47},{ico:'🥭',nm:'มะม่วง',cal:60},
+  /* ไขมัน/น้ำมัน */
+  {ico:'🫙',nm:'น้ำมันพืช',cal:884},{ico:'🫙',nm:'น้ำมันมะกอก',cal:884},{ico:'🧈',nm:'เนย',cal:717},
+  {ico:'🥥',nm:'กะทิ',cal:230},{ico:'🥜',nm:'ถั่วลิสง',cal:567},{ico:'🌰',nm:'งาขาว',cal:573},
+  /* เครื่องปรุงไทย (สำคัญมาก!) */
+  {ico:'🧂',nm:'น้ำปลา (15ml)',cal:7},{ico:'🧂',nm:'ซีอิ๊วขาว (15ml)',cal:10},
+  {ico:'🍯',nm:'น้ำตาลทราย (ช้อนชา)',cal:16},{ico:'🍯',nm:'น้ำตาลมะพร้าว (ช้อนชา)',cal:15},
+  {ico:'🥫',nm:'ซอสหอยนางรม (15ml)',cal:18},{ico:'🥫',nm:'เต้าเจี้ยว (ช้อนโต๊ะ)',cal:25},
+  {ico:'🌶️',nm:'น้ำพริกเผา (ช้อนโต๊ะ)',cal:50},{ico:'🥫',nm:'ซอสปรุงรส (15ml)',cal:14},
+  {ico:'🥫',nm:'ซอสมะเขือเทศ (ช้อนโต๊ะ)',cal:17},{ico:'🧃',nm:'น้ำมะนาว (30ml)',cal:8},
+  {ico:'🌿',nm:'ใบมะกรูด',cal:5},{ico:'🌿',nm:'ตะไคร้',cal:30},
+  {ico:'🥫',nm:'พริกแกงเขียวหวาน (ช้อนโต๊ะ)',cal:30},{ico:'🥫',nm:'พริกแกงแดง (ช้อนโต๊ะ)',cal:30},
+  /* นม/ผลิตภัณฑ์ */
+  {ico:'🥛',nm:'นมวัวสด (100ml)',cal:61},{ico:'🥛',nm:'นมพร่องมันเนย (100ml)',cal:42},
+  {ico:'🧀',nm:'ชีส',cal:402},{ico:'🫙',nm:'โยเกิร์ตรสธรรมชาติ',cal:59}
+];
+
+function buildIngPresets(){
+  var el=document.getElementById('ing-presets');var html='';
+  for(var i=0;i<ingPresets.length;i++){var p=ingPresets[i];
+    html+='<div class="ing-preset" onclick="addIngFromPreset('+i+')">' +
+      '<div class="pico">'+p.ico+'</div><div class="pnm">'+p.nm+'</div>' +
+      '<div class="pcal">'+p.cal+' kcal/100g</div></div>';
+  }el.innerHTML=html;
+}
+function addIngFromPreset(i){addIngRow(ingPresets[i].nm,100,ingPresets[i].cal);}
+function addIngRow(nm,qty,cal){
+  var id='ing_'+(ingIdCounter++);
+  ingRows.push({id:id,nm:nm||'',qty:qty||100,unit:'g',cal:cal||0});
+  renderIngRows();
+}
+function renderIngRows(){
+  var el=document.getElementById('ing-rows');
+  if(!ingRows.length){el.innerHTML='<div style="text-align:center;padding:18px;color:var(--sub);font-size:12px">กด "+ เพิ่มรายการ" หรือเลือกวัตถุดิบด้านบน</div>';updateCookTotal();return;}
+  var html='';
+  for(var i=0;i<ingRows.length;i++){var r=ingRows[i];
+    html+='<div class="ing-row">' +
+      '<input class="ing-nm-input" type="text" placeholder="ชื่อวัตถุดิบ" value="'+r.nm+'" oninput="updateIngF(\''+r.id+'\',\'nm\',this.value)">' +
+      '<input class="ing-qty-input" type="number" placeholder="ปริมาณ" value="'+r.qty+'" min="0" oninput="updateIngF(\''+r.id+'\',\'qty\',this.value)">' +
+      '<select style="flex:1;min-width:80px;padding:8px 11px;border-radius:10px;border:1.5px solid var(--border);font-family:Sarabun,sans-serif;font-size:12px;background:#fff" onchange="updateIngF(\''+r.id+'\',\'unit\',this.value)">' +
+        '<option value="g"'+(r.unit==='g'?' selected':'')+'>กรัม</option>' +
+        '<option value="ml"'+(r.unit==='ml'?' selected':'')+'>มิลลิลิตร</option>' +
+        '<option value="tbsp"'+(r.unit==='tbsp'?' selected':'')+'>ช้อนโต๊ะ</option>' +
+        '<option value="tsp"'+(r.unit==='tsp'?' selected':'')+'>ช้อนชา</option>' +
+      '</select>' +
+      '<input class="ing-cal-input" type="number" placeholder="kcal/100g" value="'+(r.cal||'')+'" min="0" oninput="updateIngF(\''+r.id+'\',\'cal\',this.value)">' +
+      '<button class="ing-rm-btn" onclick="removeIng(\''+r.id+'\')">🗑️</button></div>';
+  }el.innerHTML=html;updateCookTotal();
+}
+function updateIngF(id,field,val){
+  for(var i=0;i<ingRows.length;i++){if(ingRows[i].id===id){
+    if(field==='qty'||field==='cal') ingRows[i][field]=parseFloat(val)||0;
+    else ingRows[i][field]=val; break;
+  }}updateCookTotal();
+}
+function removeIng(id){ingRows=ingRows.filter(function(r){return r.id!==id;});renderIngRows();}
+function getG(qty,unit){if(unit==='g'||unit==='ml')return qty;if(unit==='tbsp')return qty*15;if(unit==='tsp')return qty*5;return qty;}
+function updateCookTotal(){
+  var total=0;
+  for(var i=0;i<ingRows.length;i++){var r=ingRows[i];total+=Math.round(getG(r.qty,r.unit)/100*r.cal);}
+  var el=document.getElementById('cook-total-num');if(el)el.textContent=total;
+  var note=document.getElementById('cook-tdee-note');
+  if(note)note.textContent='เป้าต่อมื้อ: ~'+Math.round(userTDEE/3)+' kcal (1/3 ของ TDEE '+userTDEE+' kcal)';
+  var mealTarget=Math.round(userTDEE/3);
+  var ok=document.getElementById('cook-ok');
+  var warn=document.getElementById('cook-warn');
+  var over=document.getElementById('cook-over');
+  if(!ok)return;
+  ok.style.display='none';warn.style.display='none';over.style.display='none';
+  if(total===0)return;
+  if(total<=mealTarget*.9)ok.style.display='block';
+  else if(total<=mealTarget*1.2){warn.style.display='block';warn.innerHTML='⚠️ <strong>ใกล้เต็มโควต้า!</strong> มื้อนี้ '+total+' kcal เป้าต่อมื้อ '+mealTarget+' kcal — ระวังมื้อต่อไป';}
+  else{over.style.display='block';over.innerHTML='🔴 <strong>เกินเป้าหมายแล้ว!</strong> มื้อนี้ '+total+' kcal เกิน '+mealTarget+' kcal ไป '+(total-mealTarget)+' kcal — ลองลดน้ำมันหรือปริมาณวัตถุดิบ';}
+}
+function buildIngRefTable(){
+  var cats=[
+    {cat:'ข้าว/แป้ง',items:[['ข้าวสวย',130],['ข้าวกล้อง',123],['ข้าวโอ๊ต',389],['มันฝรั่ง',87],['ขนมปังขาว',265],['ขนมปังโฮลวีต',247],['เส้นบะหมี่',138],['แป้งสาลี',364]]},
+    {cat:'โปรตีน',items:[['อกไก่ต้ม',165],['เนื้อหมูสับ',242],['เนื้อวัว',250],['ปลาแซลมอน',208],['ปลาทู',130],['กุ้งต้ม',99],['ไข่ไก่',155],['เต้าหู้แข็ง',70]]},
+    {cat:'ผัก/ผลไม้',items:[['บร็อคโคลี่',34],['แครอท',41],['ผักบุ้ง',19],['มะเขือเทศ',18],['กะเพรา',30],['หัวหอม',40],['กระเทียม',149],['พริกสด',40],['ตะไคร้',30],['กล้วย',89],['ส้ม',47]]},
+    {cat:'น้ำมัน/ไขมัน',items:[['น้ำมันพืช (ทุกชนิด)',884],['กะทิ (100ml)',230],['เนย',717],['ถั่วลิสง',567],['งาขาว',573],['มะพร้าวขูด',354]]},
+    {cat:'เครื่องปรุงไทย',items:[['น้ำปลา (15ml)',7],['ซีอิ๊วขาว (15ml)',10],['น้ำตาลทราย (5g)',16],['น้ำตาลมะพร้าว (5g)',15],['ซอสหอยนางรม (15ml)',18],['เต้าเจี้ยว (15ml)',25],['น้ำพริกเผา (15ml)',50],['ซอสปรุงรส (15ml)',14],['ซอสมะเขือเทศ (15ml)',17],['น้ำมะนาว (30ml)',8],['พริกแกง (15ml)',30]]},
+    {cat:'นม/ผลิตภัณฑ์',items:[['นมวัวสด (100ml)',61],['นมพร่องมันเนย (100ml)',42],['โยเกิร์ต',59],['ชีส',402],['ครีม',340]]}
+  ];
+  var html='<thead><tr><th>วัตถุดิบ</th><th>kcal/100g หรือ 100ml</th><th>หมวด</th></tr></thead><tbody>';
+  for(var ci=0;ci<cats.length;ci++){var cat=cats[ci];
+    for(var ii=0;ii<cat.items.length;ii++){var it=cat.items[ii];
+      html+='<tr><td>'+it[0]+'</td><td class="hl-cell">'+it[1]+'</td><td style="color:var(--sub);font-size:11px">'+cat.cat+'</td></tr>';
+    }
+  }html+='</tbody>';
+  var el=document.getElementById('ing-ref-table');if(el)el.innerHTML=html;
+}
+
+/* CHULA */
+var chulaMenus=[
+  {emo:'🍚',nm:'ข้าวต้มปลา',c:220,note:'โซเดียมต่ำ ย่อยง่าย',h:true},
+  {emo:'🥣',nm:'โจ๊กไก่บดสมุนไพร',c:180,note:'ผู้ป่วยหลังผ่าตัด',h:true},
+  {emo:'🍗',nm:'ไก่อบ(ไม่มีหนัง)',c:240,note:'ไขมันต่ำ โปรตีนสูง',h:true},
+  {emo:'🥦',nm:'ผัดผักรวมน้ำมันน้อย',c:130,note:'ใยอาหารสูง',h:true},
+  {emo:'🐟',nm:'ปลานึ่งมะนาว',c:190,note:'โอเมก้า-3 สูง',h:true},
+  {emo:'🥚',nm:'ไข่ต้มน้ำพริก',c:170,note:'โปรตีนครบถ้วน',h:true},
+  {emo:'🥗',nm:'สลัดอกไก่ธัญพืช',c:280,note:'Health Corner',h:true},
+  {emo:'🍱',nm:'ข้าวกล่องไก่ย่าง',c:420,note:'ร้านสวัสดิการ',h:true},
+  {emo:'🥤',nm:'น้ำผลไม้ปั่นสด',c:140,note:'ร้านเครื่องดื่ม',h:true},
+  {emo:'🥛',nm:'นมพร่องมันเนย',c:90,note:'ร้านสะดวกซื้อ',h:true},
+  {emo:'🍌',nm:'กล้วยหอมทอง',c:90,note:'ผลไม้สด',h:true},
+  {emo:'🍜',nm:'ก๋วยเตี๋ยวน้ำใสไก่',c:300,note:'ชั้น B อาคาร OPD'},
+  {emo:'🍛',nm:'ข้าวราดแกงจืดเต้าหู้',c:380,note:'ร้านข้าวแกง สก'},
+  {emo:'🥐',nm:'แซนวิชโฮลวีต',c:290,note:'Eric Kayser OPD'},
+  {emo:'🍲',nm:'ข้าวกล้องต้มข่าไก่',c:410,note:'Health Corner',h:true},
+  {emo:'🫙',nm:'โยเกิร์ตไขมันต่ำ',c:80,note:'Hello Yogurt Bwell',h:true}
+];
+function renderChulaRec(){
+  var shuffled=chulaMenus.slice().sort(function(){return Math.random()-.5;}).slice(0,8);
+  var el=document.getElementById('chula-rec-grid');if(!el)return;
+  var html='';
+  for(var i=0;i<shuffled.length;i++){var f=shuffled[i];
+    html+='<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07)">' +
+      '<div style="width:100%;height:80px;display:flex;align-items:center;justify-content:center;font-size:36px;background:linear-gradient(135deg,#fdf0ee,#fde8e8)">'+f.emo+'</div>' +
+      '<div style="padding:9px"><div style="font-weight:700;font-size:11px;margin-bottom:2px">'+f.nm+'</div>' +
+      '<div style="font-family:Prompt,sans-serif;font-size:13px;font-weight:700;color:#C0392B">'+f.c+' <span style="font-size:9px;font-weight:400;color:var(--sub)">kcal</span></div>' +
+      '<div style="font-size:10px;color:var(--sub)">'+f.note+'</div>' +
+      (f.h?'<span style="display:inline-block;background:#e8faf2;color:#1e8449;font-size:9px;font-weight:700;padding:1px 6px;border-radius:7px;margin-top:2px">✅ สุขภาพ</span>':'')+
+      '</div></div>';
+  }el.innerHTML=html;
+}
+function buildChulaPage(){
+  var guides=[
+    {ico:'☀️',nm:'มื้อเช้า 07–09 น.',desc:'25–30% ของแคลอรี่/วัน เน้นไข่ โปรตีน คาร์บเชิงซ้อน',bg:'#fffdf0',bd:'#FFD166'},
+    {ico:'🌤️',nm:'มื้อเที่ยง 11–13 น.',desc:'35–40% ของแคลอรี่/วัน เน้นข้าว โปรตีน ผัก',bg:'#fff3e0',bd:'#C0392B'},
+    {ico:'🌇',nm:'มื้อเย็น 17–19 น.',desc:'25–30% ลดแป้ง เน้นผัก โปรตีน',bg:'#e8f4ff',bd:'#4361EE'},
+    {ico:'🍎',nm:'มื้อว่าง 10 / 15 น.',desc:'10% ผลไม้ ถั่ว นมไขมันต่ำ',bg:'#f0fff9',bd:'#06D6A0'}
+  ];
+  var mg=document.getElementById('mg-grid');if(!mg)return;
+  var html='';
+  for(var i=0;i<guides.length;i++){var g=guides[i];
+    html+='<div class="mg-card" style="background:'+g.bg+';border-left-color:'+g.bd+'">' +
+      '<div class="mg-ico">'+g.ico+'</div><div class="mg-nm">'+g.nm+'</div><div class="mg-desc">'+g.desc+'</div></div>';
+  }mg.innerHTML=html;
+  var tip=document.getElementById('chula-tip');if(tip)
+    tip.innerHTML='<strong style="display:block;font-size:13px;margin-bottom:5px">📌 หลักการ 2:1:1 จากโภชนากรจุฬาฯ</strong>' +
+      '🥦 <strong>2 ส่วน — ผัก</strong> ผักต้มหรือผักสด เพิ่มกากใย<br>' +
+      '🌾 <strong>1 ส่วน — ข้าว/แป้ง</strong> แนะนำข้าวไม่ขัดสีหรือข้าวกล้อง<br>' +
+      '🍗 <strong>1 ส่วน — โปรตีน</strong> เนื้อปลา อกไก่ไร้หนัง หรือไข่ต้ม<br>' +
+      '💧 ดื่มน้ำ <strong>8–10 แก้ว</strong>/วัน | หลีกเลี่ยงน้ำหวาน<br>' +
+      '🚫 ลดอาหาร <strong>ทอด มัน เค็ม หวาน</strong>';
+  renderChulaRec();
+  var diseases=[
+    {ico:'🫀',nm:'โรคหัวใจ',desc:'ลดไขมันอิ่มตัว หลีกเลี่ยงทอด เน้นปลา ผัก ธัญพืชเต็มเมล็ด'},
+    {ico:'🩸',nm:'เบาหวาน',desc:'ลดคาร์บขาว เพิ่มใยอาหาร กินมื้อเล็กถี่ขึ้น'},
+    {ico:'🦴',nm:'กระดูกพรุน',desc:'แคลเซียม 1,000 mg/วัน วิตามิน D นม ผักใบเขียวเข้ม'},
+    {ico:'🏥',nm:'หลังผ่าตัด',desc:'โปรตีนสูง วิตามิน C สังกะสี ช่วยฟื้นฟูแผล'}
+  ];
+  var dg=document.getElementById('disease-grid');if(!dg)return;
+  var dh='';
+  for(var i=0;i<diseases.length;i++){var d=diseases[i];
+    dh+='<div class="dcard"><div class="dico">'+d.ico+'</div><div class="dnm">'+d.nm+'</div><div class="ddesc">'+d.desc+'</div></div>';
+  }dg.innerHTML=dh;
+}
+
+/* ====== INIT ====== */
+window.onload=function(){
+  buildHomeGrid();
+  buildAgeTable(25);
+  calcTDEE();
+  renderBurnGrid();
+  renderWeekGrid();
+  buildChulaPage();
+  buildIngPresets();
+  buildIngRefTable();
+  /* default cook ingredients */
+  addIngRow('ข้าวสวย',150,130);
+  addIngRow('อกไก่ต้ม',100,165);
+  addIngRow('น้ำมันพืช',10,884);
+  addIngRow('กระเทียมสับ',10,149);
+  addIngRow('น้ำปลา',15,7);
+};
+</script>
+</body>
+</html>
